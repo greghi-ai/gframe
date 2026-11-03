@@ -244,10 +244,10 @@ footer .col{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .iglist b{font-size:clamp(18px,1.8vw,24px);letter-spacing:-.02em;font-weight:600}
 .iglist span{font-size:13px;color:var(--soft)}
 .igstage{display:grid;place-items:center;perspective:1400px}
-.phone{--w:min(330px,70vw);width:var(--w);height:min(680px,82vh);border-radius:46px;background:#0B0B0C;padding:12px;box-shadow:0 40px 80px rgba(0,0,0,.22),inset 0 0 0 2px #2a2928;position:relative;transform-origin:50% 70%;will-change:transform}
-.ig-status{position:absolute;top:12px;left:12px;right:12px;height:34px;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:0 22px;color:#111;font:600 12px var(--sans);background:#fff;border-radius:34px 34px 0 0}
+.phone{--w:min(380px,78vw);width:var(--w);height:min(700px,84vh);border-radius:24px;background:#fff;box-shadow:0 30px 70px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.05);position:relative;transform-origin:50% 70%;will-change:transform;overflow:hidden}
+.ig-status{display:none!important;position:absolute;top:12px;left:12px;right:12px;height:34px;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:0 22px;color:#111;font:600 12px var(--sans);background:#fff;border-radius:34px 34px 0 0}
 .ig-status i{width:90px;height:22px;border-radius:20px;background:#0B0B0C;position:absolute;left:50%;transform:translateX(-50%)}
-.ig-screen{position:absolute;inset:12px;top:46px;border-radius:0 0 34px 34px;overflow:hidden;background:#fff}
+.ig-screen{position:absolute;inset:0;border-radius:24px;overflow:hidden;background:#fff}
 .ig-feed{will-change:transform}
 .ig-prof{display:flex;gap:12px;align-items:center;padding:14px 14px 16px;border-bottom:1px solid #eee}
 .ig-av{flex:none;width:56px;height:56px;border-radius:50%;background:#0B0B0C;display:grid;place-items:center;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--amb)}
@@ -367,8 +367,7 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
       </div>
       <div class="igstage">
         <div class="phone" id="phone">
-          <div class="ig-status"><span>9:41</span><i></i></div>
-          <div class="ig-screen" id="igScreen"><div class="ig-feed" id="igFeed">
+                    <div class="ig-screen" id="igScreen"><div class="ig-feed" id="igFeed">
             <div class="ig-prof"><span class="ig-av"><svg class="raio" viewBox="80 0 300 443" aria-hidden="true"><path d="M197.19,154.58c-11.29,10.97-10.66,27.41-17.99,40.56-6.3,11.3-25.7,31.45-11.75,43.52,8.1,7.01,21.07,5.25,30.43,2.08,12.56-4.25,31.65-17.25,43-3.36,12.79,15.66-10,32.23-19.61,41.93-16.22,16.37-28.370,36.59-29.34,60.28-.42,10.27,3.49,21.75.21,31.71-2.48,7.53-13.53,19.23-20.16,23.64-5.37,3.58-8.67.83-8.41-5.26,4.45-18.93,11.04-37.4,16.69-56.03,4.44-14.64,9.07-29.31,13.24-44.02,3.17-11.17,9.22-25.04-5.51-30.28-15.95-5.68-36.61,1.51-53.67-1.59-20.58-3.74-12.6-20.67-1.96-30.69,15.42-14.53,29.73-19.99,37.8-41.79,2.99-8.07,3.58-16.95,6.73-25.05,9.49-24.43,31.86-24.93,50.78-37.97,13.82-9.53,26.95-24.75,26.66-42.48l.77,2.81c1.64,10.12,3.35,20.41.64,30.52-7.57,28.25-40.78,24.21-58.57,41.49Z"/>
 <path d="M297.49,47.5c1.52,1.53,1.69,4.56,1.49,6.6-9.73,34.17-20.84,67.94-30.81,102.04-1.98,6.77-4.98,12.17-3.08,19.54,3.26,12.67,23.9,10.74,33.8,10.32,12.03-.52,47.2-6.51,41.22,16.31-2.89,11.03-27.33,25.44-35.79,34.92-12.69,14.22-12.33,22.08-17.11,39.29-8.43,30.35-32.51,29.38-53.83,45.23-11.55,8.58-23.44,22.12-24.81,37.03-.09,1.02.12,2.17,0,3.15-.05.4-.16.84-.57.42-3.21-16.77-5.77-35.13,8.15-47.82,16.95-15.45,44.17-13.25,55.37-35.96,4.42-8.97,5.31-19.46,9.53-28.26,5.7-11.9,23.82-26.89,16.43-41.14-5.1-9.84-17.35-9.92-26.83-7.91-10.75,2.27-19.85,9.02-30.77,10.46-12.08,1.59-24.02-3.21-22.72-17.28,1.34-14.45,28.62-32.92,37.57-45.46,9.79-13.73,15.71-31.21,15.41-48.18-.18-9.77-2.86-20.28.91-29.7,2.84-7.09,12.56-16.53,18.25-21.83,1.96-1.83,5.85-4.13,8.21-1.76Z"/>
 <path d="M222.57,161.64c-10.3,9.4-22.11,21.73-21.47,36.78.28,6.6,3.42,12.33,3.97,18.36,1.15,12.62-17.92,15.93-20.73,3.55-2.54-11.2,7.42-29.49,13.95-38.46s14.64-15.67,24.28-20.23Z"/>
