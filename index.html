@@ -321,6 +321,31 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
 .glside .gdh b{font-size:28px}
 #glDrawer{border-top:0;padding-top:0}
 
+
+/* CTA final */
+.cta2{margin-top:clamp(56px,7vw,96px);border-radius:var(--r);background:var(--ink);color:#fff;padding:clamp(28px,5vw,64px);position:relative;overflow:hidden;display:grid;gap:clamp(28px,4vw,44px)}
+.cta2>.raio{position:absolute;right:-60px;top:-50px;width:clamp(220px,28vw,380px);height:auto;color:var(--amb);opacity:.14;animation:float 7s ease-in-out infinite}
+.c2top{position:relative;max-width:760px}
+.c2k{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--amb-2);font-weight:600}
+.cta2 h2{margin:14px 0 0;font-weight:600;letter-spacing:-.045em;line-height:.98;font-size:clamp(38px,5.6vw,80px);text-wrap:balance}
+.cta2 h2 span{color:var(--amb-2)}
+.c2top p{margin:18px 0 0;max-width:46ch;color:#B9B4AC;font-size:15px}
+.c2grid{position:relative;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:12px}
+.c2card{display:grid;gap:6px;align-content:start;padding:20px;border-radius:20px;background:#1B1A19;border:1px solid #2A2928;text-decoration:none;color:#fff;position:relative;min-height:150px}
+.c2card small{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8A8782;font-weight:600}
+.c2card b{font-size:18px;letter-spacing:-.02em;font-weight:600;line-height:1.15}
+.c2card span{font-size:13px;color:#9A958D}
+.c2card.main{background:var(--amb);border-color:var(--amb);color:var(--ink);transition:transform .3s}
+.c2card.main:hover{transform:translateY(-4px)}
+.c2card.main small{color:rgba(11,11,12,.6)}.c2card.main span{color:var(--ink);font-weight:600;font-size:15px}
+.c2card.main b{font-size:clamp(24px,2.4vw,32px)}
+.c2card.main i{position:absolute;right:16px;bottom:16px;width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-style:normal;transition:transform .3s}
+.c2card.main:hover i{transform:rotate(45deg)}
+.c2steps{position:relative;display:flex;gap:10px 28px;flex-wrap:wrap;border-top:1px solid #2A2928;padding-top:20px;font-size:14px;color:#C9C4BC}
+.c2steps b{color:var(--amb-2);font-weight:600;margin-right:6px}
+@media(max-width:900px){.c2grid{grid-template-columns:1fr 1fr}.c2card.main{grid-column:1/-1;min-height:140px}}
+@media(max-width:480px){.c2grid{grid-template-columns:1fr}.c2card{min-height:0}}
+
 /* scroll reveal (only where supported; content is visible otherwise) */
 @supports (animation-timeline: view()){
   .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
@@ -344,7 +369,6 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
         <a href="#estudio">Trabalhos</a>
         <a href="#videos">Criativos em vídeo</a>
         <a href="#global">GFRAME Global</a>
-        <a href="#metodo">Método GFRAME</a>
         <a href="#contato">Contato</a>
       </nav>
     </div>
@@ -504,20 +528,7 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
   </div>
 </section>
 
-<section class="sec pad" id="metodo">
-  <div class="col panel rv">
-    <div class="mk"><i>F</i>Método GFRAME<hr></div>
-    <h2 class="two">Como um atleta é visto <span>antes de entrar em campo.</span></h2>
-    <div class="eps">
-      <div class="ep"><small>Lance 01</small><div><b>A cara do atleta</b><br><em>Identidade</em></div></div>
-      <div class="ep"><small>Lance 02</small><div><b>O dia sem jogo</b><br><em>Frequência</em></div></div>
-      <div class="ep"><small>Lance 03</small><div><b>Quem tá olhando</b><br><em>Mercado</em></div></div>
-      <div class="ep"><small>Lance 04</small><div><b>O vídeo que abre a porta</b><br><em>Vídeo</em></div></div>
-      <div class="ep"><small>Lance 05</small><div><b>A conversa</b><br><em>Negociação</em></div></div>
-      <div class="ep"><small>Final</small><div><b>De onde vem</b><br><em>Fontes</em></div></div>
-    </div>
-  </div>
-</section>
+
 
 
 
@@ -530,13 +541,23 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
 
 
 <section class="pad" id="contato">
-  <div class="col cta">
+  <div class="col cta2">
     <svg class="raio big" viewBox="80 0 300 443" aria-hidden="true"><path d="M197.19,154.58c-11.29,10.97-10.66,27.41-17.99,40.56-6.3,11.3-25.7,31.45-11.75,43.52,8.1,7.01,21.07,5.25,30.43,2.08,12.56-4.25,31.65-17.25,43-3.36,12.79,15.66-10,32.23-19.61,41.93-16.22,16.37-28.370,36.59-29.34,60.28-.42,10.27,3.49,21.75.21,31.71-2.48,7.53-13.53,19.23-20.16,23.64-5.37,3.58-8.67.83-8.41-5.26,4.45-18.93,11.04-37.4,16.69-56.03,4.44-14.64,9.07-29.31,13.24-44.02,3.17-11.17,9.22-25.04-5.51-30.28-15.95-5.68-36.61,1.51-53.67-1.59-20.58-3.74-12.6-20.67-1.96-30.69,15.42-14.53,29.73-19.99,37.8-41.79,2.99-8.07,3.58-16.95,6.73-25.05,9.49-24.43,31.86-24.93,50.78-37.97,13.82-9.53,26.95-24.75,26.66-42.48l.77,2.81c1.64,10.12,3.35,20.41.64,30.52-7.57,28.25-40.78,24.21-58.57,41.49Z"/>
 <path d="M297.49,47.5c1.52,1.53,1.69,4.56,1.49,6.6-9.73,34.17-20.84,67.94-30.81,102.04-1.98,6.77-4.98,12.17-3.08,19.54,3.26,12.67,23.9,10.74,33.8,10.32,12.03-.52,47.2-6.51,41.22,16.31-2.89,11.03-27.33,25.44-35.79,34.92-12.69,14.22-12.33,22.08-17.11,39.29-8.43,30.35-32.51,29.38-53.83,45.23-11.55,8.58-23.44,22.12-24.81,37.03-.09,1.02.12,2.17,0,3.15-.05.4-.16.84-.57.42-3.21-16.77-5.77-35.13,8.15-47.82,16.95-15.45,44.17-13.25,55.37-35.96,4.42-8.97,5.31-19.46,9.53-28.26,5.7-11.9,23.82-26.89,16.43-41.14-5.1-9.84-17.35-9.92-26.83-7.91-10.75,2.27-19.85,9.02-30.77,10.46-12.08,1.59-24.02-3.21-22.72-17.28,1.34-14.45,28.62-32.92,37.57-45.46,9.79-13.73,15.71-31.21,15.41-48.18-.18-9.77-2.86-20.28.91-29.7,2.84-7.09,12.56-16.53,18.25-21.83,1.96-1.83,5.85-4.13,8.21-1.76Z"/>
 <path d="M222.57,161.64c-10.3,9.4-22.11,21.73-21.47,36.78.28,6.6,3.42,12.33,3.97,18.36,1.15,12.62-17.92,15.93-20.73,3.55-2.54-11.2,7.42-29.49,13.95-38.46s14.64-15.67,24.28-20.23Z"/>
 <path d="M240.61,280.45c8.76-8.27,18.44-18.92,20-31.38,1.2-9.55-3.15-13.59-3.94-21.47-1.27-12.79,16.84-17.48,20.5-3.89,1.87,6.95-.86,13.66-3.68,19.92-6.85,15.2-17.27,29.86-32.88,36.83Z"/></svg>
-    <h2>Bora contar a sua?</h2>
-    <div><p>Novos projetos pelo direct do Instagram: <span class="handle">@gframe.i</span> · Santos, SP</p><a class="go" href="https://www.instagram.com/gframe.i/" target="_blank" rel="noopener">Falar com a GFRAME <b aria-hidden="true">↗</b></a></div>
+    <div class="c2top">
+      <span class="c2k">Contato</span>
+      <h2>Toda carreira tem uma história.<br><span>Bora contar a sua?</span></h2>
+      <p>Atleta, família, empresário ou marca. Conta pra gente o momento e a gente monta a forma certa de mostrar.</p>
+    </div>
+    <div class="c2grid">
+      <a class="c2card main" href="https://ig.me/m/gframe.i" target="_blank" rel="noopener"><small>Mais rápido</small><b>Chama no direct</b><span>@gframe.i</span><i aria-hidden="true">↗</i></a>
+      <div class="c2card"><small>Pra quem</small><b>Atletas e agências</b><span>Da base ao profissional, no Brasil e fora.</span></div>
+      <div class="c2card"><small>O que entra</small><b>Identidade, foto, motion e séries</b><span>Convocação, pré-jogo, matchday, editorial.</span></div>
+      <div class="c2card"><small>Base</small><b>Santos, SP</b><span>Trabalho remoto pro mundo todo.</span></div>
+    </div>
+    <div class="c2steps"><span><b>01</b> Você manda o momento</span><span><b>02</b> A gente propõe a ideia</span><span><b>03</b> Entrega em 24 a 48h</span></div>
   </div>
 </section>
 </main>
