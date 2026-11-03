@@ -1,8 +1,8 @@
 {
   "_como_usar": "Cole o link do perfil de cada atleta no Sofascore (ex.: https://www.sofascore.com/pt/jogador/nome/123456). O robô atualiza os números todo dia.",
-  "dio": "",
-  "rob": "",
-  "jon": "",
+  "dio": "https://www.sofascore.com/pt/football/player/diogenes/1128754",
+  "rob": "https://www.sofascore.com/pt/football/player/robson-junior/2191860",
+  "jon": "https://www.sofascore.com/pt/football/player/jonathan/1498670",
   "dud": "",
-  "ara": ""
+  "ara": "https://www.sofascore.com/pt/football/player/aranha/1587799"
 }
