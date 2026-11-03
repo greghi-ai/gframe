@@ -238,7 +238,7 @@ footer .col{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 
 /* Estúdio — Instagram phone opens on scroll */
-.igs{position:relative;height:160vh;margin-top:clamp(40px,5vw,72px)}
+.igs{position:relative;height:130vh;margin-top:clamp(40px,5vw,72px)}
 .igstick{position:sticky;top:0;height:100vh;display:grid;align-items:center;overflow:hidden}
 .iggrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;width:100%}
 .iglist{list-style:none;margin:clamp(24px,3vw,40px) 0 28px;padding:0;display:grid;gap:4px}
@@ -274,7 +274,7 @@ footer .col{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .ig-act span svg:first-child{fill:#E0A65A;stroke:#E0A65A}
 .ig-cap{margin:0;padding:2px 12px 14px;font-size:13px;line-height:1.4;color:#111}
 .ig-cap span{color:#8a8a8a}
-@media(max-width:860px){.gout{margin-top:0}.gpanel{margin-top:-15vh}.igs{height:150vh}.iggrid{grid-template-columns:1fr}.igtext .two{font-size:28px}.iglist,.igtext .go{display:none}.igtext .mk{margin-bottom:10px}.phone{height:min(600px,72vh)}}
+@media(max-width:860px){.gout{margin-top:0}.gpanel{margin-top:-15vh}.igs{height:auto}.igstick{position:relative!important;height:auto!important;padding-block:24px 8px}.iggrid{grid-template-columns:1fr}.igtext .two{font-size:28px}.iglist,.igtext .go{display:none}.igtext .mk{margin-bottom:10px}.phone{height:min(600px,72vh)}}
 
 
 /* Estúdio — Instagram profile (dark) */
@@ -424,6 +424,8 @@ footer{transition:color .3s}
 @media(prefers-reduced-motion:reduce){.lights i{animation:none}}
 
 .fcard>*{opacity:calc(var(--e) * 1.4 - .4);transform:translateY(calc((1 - var(--e)) * 30px))}
+.vids.hl6{grid-auto-flow:row;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-columns:auto;overflow:visible}
+@media(max-width:1000px){.vids.hl6{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:560px){.vids.hl6{grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:46%;overflow-x:auto}}
 /* scroll reveal (only where supported; content is visible otherwise) */
 @supports (animation-timeline: view()){
   .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
@@ -445,7 +447,7 @@ footer{transition:color .3s}
       <nav class="menu-pop" id="menuPop" aria-label="Seções" hidden>
         <a href="#atletas">Nossos atletas</a>
         <a href="#estudio">Trabalhos</a>
-        <a href="#videos">Criativos em vídeo</a>
+        <a href="portfolio.html">Portfólio completo</a>
         <a href="#global">GFRAME Global</a>
         <a href="#contato">Contato</a>
       </nav>
@@ -518,43 +520,14 @@ footer{transition:color .3s}
 <section class="sec pad" id="videos">
   <div class="col">
     <div class="mk"><i>C</i>Criativos<hr></div>
-    <div class="hrow"><h2 class="two">Portfólio <span>em movimento.</span></h2><div class="vctl"><div class="vfil" id="vFil"><button type="button" class="on" data-f="all">Todos</button><button type="button" data-f="sel">Seleção</button><button type="button" data-f="bra">Brasileirão</button><button type="button" data-f="cdb">Copa do Brasil</button><button type="button" data-f="lib">Libertadores</button><button type="button" data-f="sul">Sul-Americana</button><button type="button" data-f="min">Mineiro</button><button type="button" data-f="sea">Serie A</button><button type="button" data-f="lpt">Liga Portugal</button><button type="button" data-f="tpt">Taça de Portugal</button><button type="button" data-f="ucl">Champions League</button></div><div class="arrows"><button type="button" id="vPrev" aria-label="Anterior">←</button><button type="button" class="k" id="vNext" aria-label="Próximo">→</button></div></div></div>
-    <div class="vids" id="vids">
-      <figure class="vid" data-cat="sel"><div class="vbox"><video src="vid/jon_reel.mp4" poster="img/jon_reel_cover.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Jonathan Jesus</b><span>Seleção · Convocação · Seleção Brasileira</span></figcaption></figure>
-      <figure class="vid" data-cat="sel"><div class="vbox"><video src="vid/jr_convocado.mp4" poster="vid/jr_convocado.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Robinho Jr.</b><span>Seleção · Convocação · Seleção Sub-20</span></figcaption></figure>
-      <figure class="vid" data-cat="bra"><div class="vbox"><video src="vid/didico_rio.mp4" poster="vid/didico_rio.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Diógenes</b><span>Brasileirão · Fluminense × Santos</span></figcaption></figure>
-      <figure class="vid" data-cat="bra"><div class="vbox"><video src="vid/gabi_palmeiras.mp4" poster="vid/gabi_palmeiras.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Gabigol</b><span>Brasileirão · Santos × Palmeiras</span></figcaption></figure>
-      <figure class="vid" data-cat="bra"><div class="vbox"><video src="vid/didico_palmeiras.mp4" poster="vid/didico_palmeiras.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Diógenes</b><span>Brasileirão · Santos × Palmeiras</span></figcaption></figure>
-      <figure class="vid" data-cat="bra"><div class="vbox"><video src="vid/didico_vasco.mp4" poster="vid/didico_vasco.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Diógenes</b><span>Brasileirão · Vasco × Santos</span></figcaption></figure>
-      <figure class="vid" data-cat="bra"><div class="vbox"><video src="vid/didico_titular.mp4" poster="vid/didico_titular.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Diógenes</b><span>Brasileirão · Santos × Coritiba</span></figcaption></figure>
-      <figure class="vid" data-cat="bra"><div class="vbox"><video src="vid/didico_rb.mp4" poster="vid/didico_rb.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Diógenes</b><span>Brasileirão · Bragantino × Santos</span></figcaption></figure>
-      <figure class="vid" data-cat="bra"><div class="vbox"><video src="vid/didico_bahia.mp4" poster="vid/didico_bahia.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Diógenes</b><span>Brasileirão · Bahia × Santos</span></figcaption></figure>
-      <figure class="vid" data-cat="bra"><div class="vbox"><video src="vid/didico_mirassol.mp4" poster="vid/didico_mirassol.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Diógenes</b><span>Brasileirão · Santos × Mirassol</span></figcaption></figure>
-      <figure class="vid" data-cat="bra"><div class="vbox"><video src="vid/jr_vila.mp4" poster="vid/jr_vila.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Robinho Jr.</b><span>Brasileirão · Santos × Athletico-PR</span></figcaption></figure>
-      <figure class="vid" data-cat="cdb"><div class="vbox"><video src="vid/jow_cdb.mp4" poster="vid/jow_cdb.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Jonathan Jesus</b><span>Copa do Brasil · Cruzeiro × Chapecoense</span></figcaption></figure>
-      <figure class="vid" data-cat="cdb"><div class="vbox"><video src="vid/xunin_cdb_ida.mp4" poster="vid/xunin_cdb_ida.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Robinho Jr.</b><span>Copa do Brasil · Santos · Jogo de ida</span></figcaption></figure>
-      <figure class="vid" data-cat="lib"><div class="vbox"><video src="vid/jow_liberta_rio.mp4" poster="vid/jow_liberta_rio.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Jonathan Jesus</b><span>Libertadores · Flamengo × Cruzeiro</span></figcaption></figure>
-      <figure class="vid" data-cat="lib"><div class="vbox"><video src="vid/jow_libertav2.mp4" poster="vid/jow_libertav2.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Jonathan Jesus</b><span>Libertadores · Cruzeiro × Flamengo</span></figcaption></figure>
-      <figure class="vid" data-cat="lib"><div class="vbox"><video src="vid/jow_arg.mp4" poster="vid/jow_arg.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Jonathan Jesus</b><span>Libertadores · Boca Juniors × Cruzeiro</span></figcaption></figure>
-      <figure class="vid" data-cat="lib"><div class="vbox"><video src="vid/jow_liberta_1.mp4" poster="vid/jow_liberta_1.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Jonathan Jesus</b><span>Libertadores · Cruzeiro</span></figcaption></figure>
-      <figure class="vid" data-cat="lib"><div class="vbox"><video src="vid/jow_liberta.mp4" poster="vid/jow_liberta.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Jonathan Jesus</b><span>Libertadores · Cruzeiro</span></figcaption></figure>
-      <figure class="vid" data-cat="sul"><div class="vbox"><video src="vid/jrxunin_sula.mp4" poster="vid/jrxunin_sula.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Robinho Jr.</b><span>Sul-Americana · Santos</span></figcaption></figure>
-      <figure class="vid" data-cat="sul"><div class="vbox"><video src="vid/didico_sula_vila.mp4" poster="vid/didico_sula_vila.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Diógenes</b><span>Sul-Americana · Santos × Universidad Central</span></figcaption></figure>
-      <figure class="vid" data-cat="sul"><div class="vbox"><video src="vid/didico_01oitavas.mp4" poster="vid/didico_01oitavas.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Diógenes</b><span>Sul-Americana · Santos × Macará</span></figcaption></figure>
-      <figure class="vid" data-cat="sul"><div class="vbox"><video src="vid/didico_ecuador_volta.mp4" poster="vid/didico_ecuador_volta.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Diógenes</b><span>Sul-Americana · Macará × Santos</span></figcaption></figure>
-      <figure class="vid" data-cat="min"><div class="vbox"><video src="vid/cuello_semi.mp4" poster="vid/cuello_semi.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Cuello</b><span>Mineiro · Atlético-MG · Semifinal</span></figcaption></figure>
-      <figure class="vid" data-cat="min"><div class="vbox"><video src="vid/cuello_v2.mp4" poster="vid/cuello_v2.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Cuello</b><span>Mineiro · América-MG × Atlético-MG</span></figcaption></figure>
-      <figure class="vid" data-cat="min"><div class="vbox"><video src="vid/cuello_v3.mp4" poster="vid/cuello_v3.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Cuello</b><span>Mineiro · Atlético-MG × Cruzeiro</span></figcaption></figure>
-      <figure class="vid" data-cat="min"><div class="vbox"><video src="vid/reinier_v2.mp4" poster="vid/reinier_v2.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Reinier</b><span>Mineiro · Atlético-MG</span></figcaption></figure>
-      <figure class="vid" data-cat="min"><div class="vbox"><video src="vid/reinier_semifinal.mp4" poster="vid/reinier_semifinal.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Reinier</b><span>Mineiro · Atlético-MG · Semifinal</span></figcaption></figure>
-      <figure class="vid" data-cat="sea"><div class="vbox"><video src="vid/xunin_roma.mp4" poster="vid/xunin_roma.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Robinho Jr.</b><span>Serie A · Roma × Genoa</span></figcaption></figure>
-      <figure class="vid" data-cat="sea"><div class="vbox"><video src="vid/xunin_juve.mp4" poster="vid/xunin_juve.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Robinho Jr.</b><span>Serie A · Genoa × Juventus</span></figcaption></figure>
-      <figure class="vid" data-cat="sea"><div class="vbox"><video src="vid/xunin_venezia.mp4" poster="vid/xunin_venezia.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Robinho Jr.</b><span>Serie A · Genoa × Venezia</span></figcaption></figure>
-      <figure class="vid" data-cat="lpt"><div class="vbox"><video src="vid/aranha_v1_gv.mp4" poster="vid/aranha_v1_gv.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Aranha</b><span>Liga Portugal · Moreirense × Gil Vicente</span></figcaption></figure>
-      <figure class="vid" data-cat="lpt"><div class="vbox"><video src="vid/aranha_estrela.mp4" poster="vid/aranha_estrela.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Aranha</b><span>Liga Portugal · Moreirense × Estrela Amadora</span></figcaption></figure>
-      <figure class="vid" data-cat="lpt"><div class="vbox"><video src="vid/aranha_estoril_v2.mp4" poster="vid/aranha_estoril_v2.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Aranha</b><span>Liga Portugal · Estoril × Moreirense</span></figcaption></figure>
-      <figure class="vid" data-cat="tpt"><div class="vbox"><video src="vid/aranha_avs.mp4" poster="vid/aranha_avs.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Aranha</b><span>Taça de Portugal · AVS × Moreirense</span></figcaption></figure>
-      <figure class="vid" data-cat="ucl"><div class="vbox"><video src="vid/van_psg.mp4" poster="vid/van_psg.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Vanderson</b><span>Champions League · PSG × Monaco</span></figcaption></figure>
+    <div class="hrow"><h2 class="two">Portfólio <span>em movimento.</span></h2><a class="go" href="portfolio.html">Ver portfólio completo <b aria-hidden="true">→</b></a></div>
+    <div class="vids hl6" id="vids">
+      <figure class="vid"><div class="vbox"><video src="vid/jon_reel.mp4" poster="img/jon_reel_cover.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Jonathan Jesus</b><span>Seleção · Convocação · Seleção Brasileira</span></figcaption></figure>
+      <figure class="vid"><div class="vbox"><video src="vid/jr_convocado.mp4" poster="vid/jr_convocado.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Robinho Jr.</b><span>Seleção · Convocação · Seleção Sub-20</span></figcaption></figure>
+      <figure class="vid"><div class="vbox"><video src="vid/didico_rio.mp4" poster="vid/didico_rio.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Diógenes</b><span>Brasileirão · Fluminense × Santos</span></figcaption></figure>
+      <figure class="vid"><div class="vbox"><video src="vid/gabi_palmeiras.mp4" poster="vid/gabi_palmeiras.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Gabigol</b><span>Brasileirão · Santos × Palmeiras</span></figcaption></figure>
+      <figure class="vid"><div class="vbox"><video src="vid/xunin_juve.mp4" poster="vid/xunin_juve.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Robinho Jr.</b><span>Serie A · Genoa × Juventus</span></figcaption></figure>
+      <figure class="vid"><div class="vbox"><video src="vid/aranha_estrela.mp4" poster="vid/aranha_estrela.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Aranha</b><span>Liga Portugal · Moreirense × Estrela Amadora</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -758,7 +731,7 @@ fetch(IG_FEED_URL).then(r=>r.ok?r.json():Promise.reject()).then(d=>{const all=(A
   const dt=p.timestamp?new Date(p.timestamp).toLocaleDateString('pt-BR',{day:'2-digit',month:'short'}):'';return `<li${i?'':' class="on"'}><small>${label[t]||'Post'}</small><b>${esc(c||'Post GFRAME')}</b><span>${esc(dt)}</span></li>`}).join('');
  window.__igUpd&&window.__igUpd()}).catch(()=>{});})();
 
-(()=>{const box=document.getElementById('vids');if(!box)return;const fs=[...document.querySelectorAll('#vFil button')];
+(()=>{const box=document.getElementById('vids');if(!box||!document.getElementById('vFil'))return;const fs=[...document.querySelectorAll('#vFil button')];
 fs.forEach(b=>b.addEventListener('click',()=>{fs.forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;box.querySelectorAll('.vid').forEach(v=>{v.hidden=!(f==='all'||v.dataset.cat===f);if(v.hidden){const vi=v.querySelector('video');vi.pause()}});box.scrollTo({left:0,behavior:'smooth'})}));
 const st=()=>{const v=[...box.querySelectorAll('.vid:not([hidden])')][0];return v?v.offsetWidth+14:300};
 document.getElementById('vPrev').addEventListener('click',()=>box.scrollBy({left:-st(),behavior:'smooth'}));document.getElementById('vNext').addEventListener('click',()=>box.scrollBy({left:st(),behavior:'smooth'}));})();
