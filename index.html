@@ -276,7 +276,7 @@ footer .col{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 /* GFRAME Global — 3D globe entrance / exit */
 .gin{position:relative;height:210vh;margin-top:clamp(56px,7vw,96px)}
-.gout{position:relative;height:170vh}
+.gout{position:relative;height:150vh;margin-top:-20vh}
 .gstick{position:sticky;top:0;height:100vh;overflow:hidden}
 canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
 .gintro{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:#fff;pointer-events:none;opacity:0}
@@ -573,16 +573,16 @@ const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),sm=t=>t*t*(3-2*t),lerp=(a,b,t)=>
 const Lc=[243,242,239],Dc=[11,11,12];let spin=0,last=performance.now();
 function frame(now){const dt=Math.min(50,now-last);last=now;if(!reduce)spin+=dt*0.006;const H=innerHeight;
  const rI=sIn.getBoundingClientRect(),rO=sOut.getBoundingClientRect();
- const pI=cl(-rI.top/(rI.height-H)),pO=cl(-rO.top/(rO.height-H));
+ const pI=cl(-rI.top/(rI.height-H)),pO=cl((H*.85-rO.top)/(rO.height));
  const dark=cl((H-rI.top)/(H*.8))*(1-seg(pO,.35,.95));
  const c=Lc.map((v,i)=>Math.round(v+(Dc[i]-v)*dark));document.body.style.background=`rgb(${c})`;
  if(rI.bottom>0&&rI.top<H){const grow=seg(pI,0,.4),dive=seg(pI,.45,.9);const r=lerp(lerp(.22,.86,grow),9,dive*dive);
   const drift=Math.sin(spin*0.004)*4*(1-grow);
   gIn({r,lon:lerp(-160,-48,seg(pI,0,.42))+drift,lat:lerp(5,-15,seg(pI,.1,.6)),alpha:sm(cl((H-rI.top)/(H*.9)))*(1-seg(pI,.82,.95)),arc:seg(pI,.15,.42)});
   tIn.style.opacity=(seg(pI,.1,.2)*(1-seg(pI,.4,.5))).toFixed(3);tIn.style.transform=`scale(${lerp(.92,1.1,seg(pI,.1,.5))})`}
- if(rO.bottom>0&&rO.top<H){const back=seg(pO,0,.55);const r=lerp(7,.5,back)*(1-seg(pO,.55,1)*.85);
-  gOut({r,lon:lerp(5,-25,back)-((spin*.5)%360)*back,lat:lerp(42,8,back),alpha:seg(pO,0,.1)*(1-seg(pO,.75,.98)),arc:1});
-  tOut.style.opacity=(seg(pO,.25,.4)*(1-seg(pO,.6,.75))).toFixed(3)}
+ if(rO.bottom>0&&rO.top<H){const back=seg(pO,0,.5);const r=lerp(6,.5,back)*(1-seg(pO,.5,.95)*.85);
+  gOut({r,lon:lerp(-10,-30,back),lat:lerp(38,8,back),alpha:seg(pO,0,.04)*(1-seg(pO,.75,.95)),arc:1});
+  tOut.style.opacity=(seg(pO,.18,.3)*(1-seg(pO,.55,.7))).toFixed(3)}
  requestAnimationFrame(frame)}
 requestAnimationFrame(frame);})();
 
