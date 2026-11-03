@@ -276,7 +276,7 @@ footer .col{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 /* GFRAME Global — 3D globe entrance / exit */
 .gin{position:relative;height:210vh;margin-top:clamp(56px,7vw,96px)}
-.gout{position:relative;height:150vh;margin-top:-20vh}
+.gout{position:relative;z-index:1;height:150vh;margin-top:-20vh}
 .gstick{position:sticky;top:0;height:100vh;overflow:hidden}
 canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
 .gintro{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:#fff;pointer-events:none;opacity:0}
@@ -284,11 +284,11 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
 .gintro h2{margin:14px 0 0;font-weight:600;letter-spacing:-.05em;line-height:.92;font-size:clamp(48px,8vw,120px);text-shadow:0 10px 60px rgba(0,0,0,.6)}
 .gintro h2 span{color:var(--amb-2)}
 .gintro p{margin:18px 0 0;font-size:13px;color:#8A8782}
-.gpanel{padding-block:clamp(16px,3vw,40px) clamp(40px,6vw,80px);margin-top:-30vh;color:#fff;position:relative}
+.gpanel{z-index:2;padding-block:clamp(16px,3vw,40px) clamp(40px,6vw,80px);margin-top:-30vh;color:#fff;position:relative}
 .gpanel .mk{color:#8A8782}.gpanel .mk hr{border-color:#2A2928}
 .gpanel .two{color:#fff}.gpanel .two span{color:#6B6862}
 .gpanel .hrow p{color:#8A8782}
-.gpanel .gl{border:1px solid #232220}
+.gpanel .gl{border:1px solid #232220;background:var(--dark);position:relative}
 .back{border:0;background:transparent;color:var(--amb-2);font:600 13px var(--sans);padding:0;margin-bottom:12px;cursor:pointer}
 .glside .gitems{grid-auto-flow:row;grid-template-columns:1fr 1fr;grid-auto-columns:auto;overflow:visible}
 .glside .gdh b{font-size:28px}
