@@ -188,7 +188,7 @@ footer .col{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .ath.soon .soonbg span{font-size:12px;color:#8A8782;letter-spacing:.06em;text-transform:uppercase}
 .ath.soon .ph{aspect-ratio:4/5}
 /* videos */
-.vids{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:clamp(24px,3vw,40px)}
+.vids{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:clamp(24px,3vw,40px)}
 .vid{margin:0;display:grid;gap:10px}
 .vbox{position:relative;aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:#111;max-width:100%}
 .vbox video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
@@ -197,7 +197,7 @@ footer .col{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .snd.on{background:var(--amb)}
 .vid figcaption b{display:block;font-size:14px;letter-spacing:-.01em}
 .vid figcaption span{font-size:12px;color:var(--soft)}
-@media(max-width:1000px){.vids{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1000px){.vids{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.vids{grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:62%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.vid{scroll-snap-align:start}}
 /* global map */
 .gl{margin-top:clamp(24px,3vw,40px);border-radius:var(--r);background:var(--dark);color:#fff;padding:clamp(16px,2.4vw,28px);display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:clamp(16px,2.4vw,28px)}
@@ -418,11 +418,9 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
     <div class="hrow"><h2 class="two">Portfólio <span>em movimento.</span></h2><p>Passe o mouse ou toque pra assistir. O som liga no botão do canto.</p></div>
     <div class="vids">
       <figure class="vid rv"><div class="vbox"><video src="vid/jon_reel.mp4" poster="img/jon_reel_cover.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Jonathan Jesus · Convocado</b><span>Reel · Seleção Brasileira</span></figcaption></figure>
-      <figure class="vid rv"><div class="vbox"><video src="vid/jonathan.mp4" poster="vid/jonathan.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Jonathan Jesus</b><span>Motion · História</span></figcaption></figure>
-      <figure class="vid rv"><div class="vbox"><video src="vid/lance01.mp4" poster="vid/lance01.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Método GFRAME · Lance 01</b><span>Série explicativa</span></figcaption></figure>
-      <figure class="vid rv"><div class="vbox"><video src="vid/matchday.mp4" poster="vid/matchday.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Bragantino × Santos</b><span>Matchday · Brasileirão</span></figcaption></figure>
-      <figure class="vid rv"><div class="vbox"><video src="vid/dg1.mp4" poster="vid/dg1.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Diógenes · DG1</b><span>Animação de logo</span></figcaption></figure>
-      <figure class="vid rv"><div class="vbox"><video src="vid/story.mp4" poster="vid/story.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Novo quadro</b><span>Story · Lançamento</span></figcaption></figure>
+      <figure class="vid rv"><div class="vbox"><video src="vid/jr_convocado.mp4" poster="vid/jr_convocado.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Robinho Jr. · Convocado</b><span>Reel · Seleção Sub-20</span></figcaption></figure>
+      <figure class="vid rv"><div class="vbox"><video src="vid/gabi_palmeiras.mp4" poster="vid/gabi_palmeiras.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Gabigol · Pré-jogo</b><span>Santos × Palmeiras</span></figcaption></figure>
+      <figure class="vid rv"><div class="vbox"><video src="vid/didico_rio.mp4" poster="vid/didico_rio.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" aria-label="Ativar som">♪</button></div><figcaption><b>Diógenes · Pré-jogo</b><span>Santos · Maracanã</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -548,8 +546,8 @@ const VB={world:[0,0,1000,520],br:[255,262,190,165],sa:[240,240,200,290],pt:[440
 const HOT={br:['BRA'],sa:['BRA','ARG','URY','PRY','CHL','COL','PER','ECU','BOL','VEN'],pt:['PRT'],it:['ITA'],eu:['PRT','ESP','FRA','ITA','DEU','GBR','NLD','BEL','CHE','AUT']};
 ['BRA','PRT','ITA'].forEach(c=>{const p=document.getElementById('c-'+c);p&&p.classList.add('hot')});
 const C={
- sel:{t:'Seleção Brasileira',s:'Brasil',items:[{img:'img/post_rob_1.jpg',c:'Robinho Jr. · Convocação Sub-20'},{vid:'vid/jon_reel.mp4',poster:'img/jon_reel_cover.jpg',c:'Jonathan Jesus · Convocação'}]},
- bra:{t:'Brasileirão',s:'Brasil',items:[{img:'img/c_diogenes.jpg',c:'Diógenes · Maracanã'},{vid:'vid/matchday.mp4',poster:'vid/matchday.jpg',c:'Bragantino × Santos · Matchday'}]},
+ sel:{t:'Seleção Brasileira',s:'Brasil',items:[{vid:'vid/jr_convocado.mp4',poster:'vid/jr_convocado.jpg',c:'Robinho Jr. · Convocação Sub-20'},{vid:'vid/jon_reel.mp4',poster:'img/jon_reel_cover.jpg',c:'Jonathan Jesus · Convocação'}]},
+ bra:{t:'Brasileirão',s:'Brasil',items:[{vid:'vid/didico_rio.mp4',poster:'vid/didico_rio.jpg',c:'Diógenes · Pré-jogo Maracanã'},{vid:'vid/gabi_palmeiras.mp4',poster:'vid/gabi_palmeiras.jpg',c:'Gabigol · Pré-jogo Santos × Palmeiras'},{img:'img/c_diogenes.jpg',c:'Diógenes · Maracanã'},{vid:'vid/matchday.mp4',poster:'vid/matchday.jpg',c:'Bragantino × Santos · Matchday'}]},
  cdb:{t:'Copa do Brasil',s:'Brasil',items:[]},pau:{t:'Paulistão',s:'Brasil',items:[]},min:{t:'Mineiro',s:'Brasil',items:[]},
  lib:{t:'Libertadores',s:'América do Sul',items:[]},sul:{t:'Sul-Americana',s:'América do Sul',items:[]},
  lpt:{t:'Liga Portugal',s:'Portugal',items:[]},tpt:{t:'Taça de Portugal',s:'Portugal',items:[]},
