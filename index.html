@@ -129,11 +129,8 @@ a{color:inherit}
 @media(max-width:760px){.map{grid-template-columns:1fr;min-height:0}.place.it{text-align:left;justify-items:start}.place.it .chips{justify-content:flex-start}.place.br{order:2}.map svg.route{opacity:.35}}
 
 /* agências */
-.ag{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,24px);margin-top:clamp(28px,4vw,44px);padding:clamp(22px,3.4vw,44px);border-radius:var(--r);background:#E8E4DD;border:1px solid #DAD5CC}
-.ag div{background:var(--page);border:1.5px solid #CFC9BF;border-radius:20px;min-height:170px;display:grid;place-items:center;padding:24px;font-weight:700;font-size:clamp(30px,4vw,52px);letter-spacing:-.05em;color:#ADA89F;box-shadow:0 18px 30px -18px rgba(60,45,20,.28);animation:agf 6s ease-in-out infinite;transition:color .3s,border-color .3s,box-shadow .3s}
-.ag div:nth-child(2){animation-delay:-2s}.ag div:nth-child(3){animation-delay:-4s}
-@keyframes agf{50%{transform:translateY(-8px)}}
-.ag div:hover{border-color:var(--amb);box-shadow:0 26px 40px -20px rgba(160,110,40,.45)}
+.ag{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:clamp(24px,3vw,36px)}
+.ag div{background:var(--card);border-radius:22px;min-height:180px;display:grid;place-items:center;padding:24px;font-weight:700;font-size:clamp(34px,4.6vw,60px);letter-spacing:-.05em;color:#B9B5AE;transition:color .3s}
 .ag div:hover{color:var(--ink)}
 .aglogo{max-width:70%;max-height:64px;width:auto;height:auto;filter:brightness(0);opacity:.35;transition:opacity .3s}.aglogo.tall{max-height:104px}
 .ag div:hover .aglogo{opacity:.9}
@@ -327,7 +324,7 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
 
 /* Contato — entrada no scroll */
 .cbolt .cp{transform-box:view-box;transform-origin:50% 50%;will-change:transform,opacity}
-.cwrap{position:relative;height:240vh;margin-top:clamp(56px,7vw,96px);background:var(--page)}
+.cwrap{position:relative;height:230vh;margin-top:clamp(40px,5vw,72px);background:var(--page)}
 .cstick{position:sticky;top:0;height:100vh;overflow:hidden;--p:0}
 .cstick::before{content:"";position:absolute;inset:0;background:#0B0B0C;opacity:var(--dk,0);z-index:0}
 .cstick .cbolt{overflow:visible;animation:none;right:auto;position:absolute;fill:var(--amb);left:50%;top:50%;width:min(42vw,300px);height:auto;color:var(--amb);transform:translate(-50%,calc(-50% + var(--by,0px))) scale(var(--bs,.4));z-index:1;will-change:transform;opacity:var(--bo,1)}
@@ -335,7 +332,7 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
 .cintro small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600}
 .cintro h2{margin:12px 0 0;font-weight:600;letter-spacing:-.05em;line-height:.92;font-size:clamp(48px,8vw,120px)}
 .cintro h2 span{color:var(--amb)}
-.cpanel{position:absolute;inset:0;z-index:3;display:grid;align-items:center;color:#fff;opacity:var(--po,0);transform:translateY(calc((1 - var(--po,0)) * 40px)) scale(calc(.96 + .04 * var(--po,0)));pointer-events:var(--pe,none)}
+.cpanel{position:absolute;inset:0;z-index:3;display:grid;align-items:center;color:#fff;padding-block:16px;opacity:var(--po,0);transform:translateY(calc((1 - var(--po,0)) * 40px)) scale(calc(.96 + .04 * var(--po,0)));pointer-events:var(--pe,none)}
 .cpin{width:100%;display:grid;gap:clamp(24px,4vw,44px)}
 .c2top{max-width:760px}
 .c2k{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--amb-2);font-weight:600}
@@ -352,6 +349,11 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
 .cbase{display:flex;align-items:baseline;gap:14px;border-top:1px solid #2A2928;padding-top:18px}
 .cbase span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8A8782;font-weight:600}
 .cbase b{font-size:clamp(20px,2.4vw,30px);font-weight:600;letter-spacing:-.03em}.cbase em{font-style:normal;color:var(--amb-2)}
+
+.ccard{background:#111110;border:1.5px solid #34312D;border-radius:clamp(24px,3vw,36px);padding:clamp(24px,4.4vw,56px);box-shadow:0 40px 80px -30px rgba(0,0,0,.45),0 0 0 8px rgba(200,149,74,.06);transform-origin:50% 50%;transform:scale(var(--cs,1));border-radius:calc(clamp(24px,3vw,36px) / var(--cs,1))}
+.ccard.fl{animation:cfl 6s ease-in-out infinite}
+@keyframes cfl{50%{translate:0 -8px}}
+.cpanel{transform:none!important}
 @media(max-width:760px){.c3grid{grid-template-columns:1fr}.c3{min-height:0}.cwrap{height:190vh}.c2top p{font-size:14px}}
 
 /* scroll reveal (only where supported; content is visible otherwise) */
@@ -556,7 +558,7 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
 <path class="cp" d="M240.61,280.45c8.76-8.27,18.44-18.92,20-31.38,1.2-9.55-3.15-13.59-3.94-21.47-1.27-12.79,16.84-17.48,20.5-3.89,1.87,6.95-.86,13.66-3.68,19.92-6.85,15.2-17.27,29.86-32.88,36.83Z"/></svg>
     
     <div class="cpanel pad">
-      <div class="col cpin">
+      <div class="col cpin ccard">
         <div class="c2top">
           <span class="c2k">Contato</span>
           <h2>Toda carreira tem uma história.<br><span>Bora contar a sua?</span></h2>
@@ -703,15 +705,15 @@ const CONTACT={whatsapp:'',email:''};
 (()=>{const w=CONTACT.whatsapp.replace(/\D/g,''),m=CONTACT.email.trim();
 if(w){const a=document.getElementById('cWpp');a.href='https://wa.me/'+w;document.getElementById('cWppTxt').textContent=CONTACT.whatsapp}
 if(m){const a=document.getElementById('cMail');a.href='mailto:'+m;document.getElementById('cMailTxt').textContent=m}})();
-(()=>{const sec=document.getElementById('contato'),st=sec&&sec.querySelector('.cstick');if(!st)return;const PARTS=[...st.querySelectorAll('.cbolt .cp')];const OFF=[[-520,-260,-70,.6],[460,-340,55,.5],[-380,320,90,.8],[420,300,-80,.7]];
+(()=>{const sec=document.getElementById('contato'),st=sec&&sec.querySelector('.cstick');if(!st)return;const PARTS=[...st.querySelectorAll('.cbolt .cp')];const CARD=st.querySelector('.ccard');const OFF=[[-520,-260,-70,.6],[460,-340,55,.5],[-380,320,90,.8],[420,300,-80,.7]];
 const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),sm=t=>t*t*(3-2*t),seg=(p,a,b)=>sm(cl((p-a)/(b-a))),lerp=(a,b,t)=>a+(b-a)*t;let raf=0;
 const upd=()=>{raf=0;const r=sec.getBoundingClientRect(),H=innerHeight;const p=cl(-r.top/(r.height-H));const pre=sm(cl((H-r.top)/H));
- const q=cl(pre*.18+cl(p/.6)*.82),asm=sm(cl(q/.72));
- const bs=.4*Math.pow(175,q*q*q);
- st.style.setProperty('--bs',bs.toFixed(3));st.style.setProperty('--bo',(1-seg(p,.5,.62)).toFixed(3));
- st.style.setProperty('--dk',seg(p,.1,.4).toFixed(3));
+ const q=cl(pre*.25+cl(p/.42)*.75),asm=sm(cl(q/.85));
+ const bs=lerp(.45,1.05,sm(q));
+ st.style.setProperty('--bs',bs.toFixed(3));st.style.setProperty('--bo',(1-seg(p,.46,.58)).toFixed(3));
+ st.style.setProperty('--dk','0');
  PARTS.forEach((el,i)=>{const o=OFF[i%OFF.length],k=1-asm;el.style.transform=`translate(${(o[0]*k).toFixed(1)}px,${(o[1]*k).toFixed(1)}px) rotate(${(o[2]*k).toFixed(1)}deg) scale(${(1+o[3]*k).toFixed(3)})`;el.style.opacity=Math.min(1,.15+asm*1.2).toFixed(3)});
- const po=seg(p,.56,.72);st.style.setProperty('--po',po.toFixed(3));st.style.setProperty('--pe',po>.6?'auto':'none')};
+ const po=seg(p,.44,.66);st.style.setProperty('--po',Math.min(1,po*1.6).toFixed(3));st.style.setProperty('--cs',lerp(.12,1,po).toFixed(3));CARD.classList.toggle('fl',po>=1);st.style.setProperty('--pe',po>.6?'auto':'none')};
 addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});addEventListener('resize',upd);upd();})();
 </script>
 </body>
