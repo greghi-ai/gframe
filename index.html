@@ -474,6 +474,27 @@ body{transition:background-color .2s linear}
 .night .arrows button{background:#1B1A19;border-color:#2E2C29;color:#F2EFEA}.night .arrows button.k{background:#F2EFEA;color:#0B0B0C;border-color:#F2EFEA}
 .night .marq{-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 @media(max-width:860px){#phone{transform:none!important}}
+
+/* Hero stack (estilo C6) */
+.st{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:24px;min-height:min(78vh,760px);border-radius:var(--r);background:radial-gradient(ellipse 60% 70% at 72% 55%,rgba(200,149,74,.14),transparent 70%),#0F0F10;border:1px solid #1E1D1B;padding:clamp(28px,5vw,72px);overflow:hidden;color:#F2EFEA}
+.st-chip{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:500;color:#E0A65A;padding:7px 14px;border-radius:999px;border:1px solid rgba(224,166,90,.35);background:rgba(224,166,90,.06)}
+.st-chip i{width:7px;height:7px;border-radius:50%;background:#E0A65A;box-shadow:0 0 10px #E0A65A}
+.st-h{margin:26px 0 0;font-weight:300;letter-spacing:-.045em;line-height:1;font-size:clamp(46px,6.2vw,96px)}
+.st-h span{color:var(--amb-2);font-weight:500;text-decoration:underline;text-decoration-thickness:.06em;text-underline-offset:.12em}
+.st-p{margin:26px 0 0;max-width:38ch;padding-left:16px;border-left:2px solid var(--amb);color:#B9B4AC;font-size:15px;line-height:1.55}
+.st-b{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.st-cta{padding:14px 22px;border-radius:6px;background:linear-gradient(180deg,#E8B262,#C8954A);color:#111;font-weight:600;font-size:14px;text-decoration:none;box-shadow:0 10px 30px -10px rgba(224,166,90,.6);transition:transform .25s}
+.st-cta:hover{transform:translateY(-2px)}
+.st-ghost{padding:13px 20px;border-radius:6px;border:1px solid rgba(224,166,90,.5);color:#F2EFEA;font-weight:500;font-size:14px;text-decoration:none;transition:background .25s}
+.st-ghost:hover{background:rgba(224,166,90,.08)}
+.st-r{position:relative;height:100%;min-height:440px;display:grid;place-items:center;perspective:1600px}
+.st-stack{position:relative;width:clamp(200px,18vw,290px);aspect-ratio:9/16;transform-style:preserve-3d;margin-right:clamp(80px,14vw,260px)}
+.st-c{position:absolute;inset:0;margin:0;border-radius:14px;overflow:hidden;transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .6s,filter .6s;box-shadow:-18px 20px 40px rgba(0,0,0,.55);backface-visibility:hidden}
+.st-c img{width:100%;height:100%;object-fit:cover;display:block}
+.st-c::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.18),transparent 35%);pointer-events:none}
+.st-c.out{transform:translateX(-140px) translateZ(80px) rotateY(-10deg)!important;opacity:0!important}
+.st-cap{position:absolute;bottom:4%;left:0;right:0;text-align:center;margin:0;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8A8782}
+@media(max-width:860px){.st{grid-template-columns:1fr;min-height:0;padding:28px 20px}.st-r{min-height:380px;order:-1}.st-stack{width:150px;margin-right:110px}.st-h{font-size:clamp(42px,12vw,64px)}}
 /* scroll reveal (only where supported; content is visible otherwise) */
 @supports (animation-timeline: view()){
   .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
@@ -502,18 +523,14 @@ body{transition:background-color .2s linear}
     </div>
   </div>
 
-  <header class="col hx ed" id="top" aria-roledescription="carrossel" aria-label="Atletas GFRAME">
-    <div class="slide on" data-name="Diógenes" data-role="Goleiro · Santos FC" data-t="Sua história merece ser |contada.|" data-c="Maracanã, Vila, Libertadores. A imagem de quem segura o resultado."><img src="img/hero_game.jpg" alt="Diógenes" style="object-position:50% 45%"></div><div class="slide" data-name="Robinho Jr." data-role="Atacante · Genoa · Seleção Sub-20" data-t="De Santos a Gênova. |Agora, a Seleção.|" data-c="Do primeiro passo na Serie A à convocação, contado de perto."><img src="img/h_robinho.jpg" alt="Robinho Jr." loading="lazy" style="object-position:50% 35%"></div><div class="slide" data-name="Jonathan Jesus" data-role="Zagueiro · Cruzeiro · Seleção" data-t="Da quadra de São Vicente à |Seleção principal.|" data-c="O atacante que virou zagueiro e chegou à camisa amarela."><img src="img/h_jonathan_mural.jpg" alt="Jonathan Jesus" loading="lazy" style="object-position:50% 40%"></div><div class="slide" data-name="Dudu" data-role="Juventus U20" data-t="Uma marca que chega |antes do nome.|" data-c="Identidade construída antes do estádio cheio."><img src="img/h_dudu.jpg" alt="Dudu" loading="lazy" style="object-position:50% 25%"></div>
-    <div class="shade"></div><div class="grain"></div>
-    <div class="ed-top"><span>GFRAME <em>—</em> Edição 01 · Novembro 2026</span><span class="ed-n"><b id="edN">01</b> / 04</span></div>
-    <div class="ed-v" aria-hidden="true">Sua história merece ser contada</div>
-    <div class="ed-copy" aria-live="polite">
-      <span class="ed-role" id="edRole"></span>
-      <h1 class="ed-name" id="edName"></h1>
-      <div class="ed-rule"></div>
-      <p class="ed-t" id="ht"></p>
+  <header class="col st" id="top">
+    <div class="st-l">
+      <span class="st-chip"><i></i>Direção visual para atletas</span>
+      <h1 class="st-h">Sua história.<br>Do seu <span>jeito</span>.</h1>
+      <p class="st-p">Identidade, foto, motion e séries para atletas da base ao profissional. No Brasil e na Europa.</p>
+      <div class="st-b"><a class="st-cta" href="#contato">Falar com a GFRAME</a><a class="st-ghost" href="portfolio.html">Ver portfólio <span aria-hidden="true">→</span></a></div>
     </div>
-    <div class="ed-side"><p id="edC"></p><nav class="ed-idx" id="edIdx"><button type="button" data-k="0"><b>01</b><span>Diógenes</span><i></i></button><button type="button" data-k="1"><b>02</b><span>Robinho Jr.</span><i></i></button><button type="button" data-k="2"><b>03</b><span>Jonathan Jesus</span><i></i></button><button type="button" data-k="3"><b>04</b><span>Dudu</span><i></i></button></nav></div>
+    <div class="st-r"><div class="st-stack" id="stStack"><figure class="st-c" data-c="Robinho Jr. · Convocado"><img src="vid/jr_convocado.jpg" alt="Robinho Jr. · Convocado" ></figure><figure class="st-c" data-c="Diógenes · Maracanã"><img src="vid/didico_rio.jpg" alt="Diógenes · Maracanã" ></figure><figure class="st-c" data-c="Jonathan · Boca × Cruzeiro"><img src="vid/jow_arg.jpg" alt="Jonathan · Boca × Cruzeiro" ></figure><figure class="st-c" data-c="Robinho Jr. · Genoa × Juventus"><img src="vid/xunin_juve.jpg" alt="Robinho Jr. · Genoa × Juventus" ></figure><figure class="st-c" data-c="Aranha · Liga Portugal"><img src="vid/aranha_estrela.jpg" alt="Aranha · Liga Portugal" loading="lazy"></figure><figure class="st-c" data-c="Gabigol · Santos × Palmeiras"><img src="vid/gabi_palmeiras.jpg" alt="Gabigol · Santos × Palmeiras" loading="lazy"></figure><figure class="st-c" data-c="Vanderson · PSG × Monaco"><img src="vid/van_psg.jpg" alt="Vanderson · PSG × Monaco" loading="lazy"></figure><figure class="st-c" data-c="Diógenes · Vasco × Santos"><img src="vid/didico_vasco.jpg" alt="Diógenes · Vasco × Santos" loading="lazy"></figure><figure class="st-c" data-c="Cuello · Mineiro"><img src="vid/cuello_v2.jpg" alt="Cuello · Mineiro" loading="lazy"></figure><figure class="st-c" data-c="Jonathan · Libertadores"><img src="vid/jow_liberta_rio.jpg" alt="Jonathan · Libertadores" loading="lazy"></figure><figure class="st-c" data-c="Robinho Jr. · Roma × Genoa"><img src="vid/xunin_roma.jpg" alt="Robinho Jr. · Roma × Genoa" loading="lazy"></figure><figure class="st-c" data-c="Diógenes · Bahia × Santos"><img src="vid/didico_bahia.jpg" alt="Diógenes · Bahia × Santos" loading="lazy"></figure></div><p class="st-cap" id="stCap"></p></div>
   </header>
 </div>
 
@@ -667,15 +684,13 @@ body{transition:background-color .2s linear}
 b.addEventListener('click',e=>{e.stopPropagation();set(p.hidden)});document.addEventListener('click',e=>{if(!p.contains(e.target))set(false)});
 p.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape')set(false)});})();
 
-(()=>{const slides=[...document.querySelectorAll('.hx .slide')],ht=document.getElementById('ht'),nm=document.getElementById('edName'),rl=document.getElementById('edRole'),cc=document.getElementById('edC'),nn=document.getElementById('edN'),idx=[...document.querySelectorAll('#edIdx button')];
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;const DUR=6500;let i=0,timer;
-const render=t=>{const parts=t.split('|');let n=0;ht.innerHTML=parts.map(p=>p.trim().split(/\s+/).filter(Boolean).map(w=>`<span class="w" style="animation-delay:${300+(n++)*50}ms">${w}</span>`).join(' ')).map((h,k)=>k===1?`<span class="acc">${h}</span>`:h).join(' ')};
-function go(k){slides[i].classList.remove('on');i=(k+slides.length)%slides.length;const s=slides[i];s.classList.add('on');
- let q=0;nm.innerHTML=s.dataset.name.split(' ').map(w=>'<span class="wd">'+[...w].map(ch=>`<span style="animation-delay:${(q++)*35}ms">${ch}</span>`).join('')+'</span>').join(' ');nm.style.fontSize='';requestAnimationFrame(()=>{const max=nm.parentElement.clientWidth;const w=nm.scrollWidth;if(w>max){nm.style.fontSize=(parseFloat(getComputedStyle(nm).fontSize)*max/w*.97)+'px'}});rl.textContent=s.dataset.role;cc.textContent=s.dataset.c;nn.textContent=String(i+1).padStart(2,'0');render(s.dataset.t);
- [rl,cc].forEach(e=>{e.classList.remove('in');void e.offsetWidth;e.classList.add('in')});
- idx.forEach((x,q)=>{x.classList.remove('on');void x.offsetWidth;x.classList.toggle('on',q===i);x.style.setProperty('--dur',DUR+'ms')});
- clearTimeout(timer);if(!reduce)timer=setTimeout(()=>go(i+1),DUR)}
-idx.forEach((b,q)=>b.addEventListener('click',()=>go(q)));go(0);})();
+(()=>{const st=document.getElementById('stStack');if(!st)return;const cs=[...st.children],cap=document.getElementById('stCap'),N=cs.length;let off=0,mx=0,my=0,cx=0,cy=0;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const lay=()=>{const m=innerWidth<=860;cs.forEach((c,k)=>{const i=(k-off+N*100)%N;const gap=m?16:30;
+ c.style.transform=`translateX(${i*gap}px) translateZ(${-i*(m?26:46)}px) rotateY(-28deg)`;c.style.zIndex=N-i;c.style.opacity=i>9?0:1;c.style.filter=`brightness(${1-i*.06})`;c.classList.toggle('front',i===0);if(i===0)cap.textContent=c.dataset.c})};
+lay();if(!reduce)setInterval(()=>{const f=cs.find(c=>c.classList.contains('front'));f.classList.add('out');setTimeout(()=>{f.classList.remove('out');off=(off+1)%N;lay()},420)},2800);
+addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5},{passive:true});addEventListener('resize',lay);
+(function t(){cx+=(mx-cx)*.06;cy+=(my-cy)*.06;st.style.transform=`rotateY(${cx*10}deg) rotateX(${-cy*8}deg)`;requestAnimationFrame(t)})();})();
 
 (()=>{const m=document.getElementById('robSlides');if(!m)return;const f=[...m.querySelectorAll('.f')],d=[...m.querySelectorAll('.dots i')];let k=0;
 if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;setInterval(()=>{f[k].classList.remove('on');d[k].classList.remove('on');k=(k+1)%f.length;f[k].classList.add('on');d[k].classList.add('on')},2600)})();
