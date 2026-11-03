@@ -5,7 +5,16 @@ import json, re, time, urllib.request, datetime
 API = "https://api.sofascore.com/api/v1"
 HDR = {"User-Agent": "Mozilla/5.0 (GFRAME site updater)", "Accept": "application/json"}
 
+try:
+    from curl_cffi import requests as cr
+except Exception:
+    cr = None
+
 def get(path):
+    if cr:
+        r = cr.get(API + path, impersonate="chrome", timeout=20, headers={"Referer": "https://www.sofascore.com/"})
+        r.raise_for_status()
+        return r.json()
     req = urllib.request.Request(API + path, headers=HDR)
     with urllib.request.urlopen(req, timeout=20) as r:
         return json.load(r)
