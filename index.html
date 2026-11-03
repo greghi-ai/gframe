@@ -381,14 +381,14 @@ footer{transition:color .3s}
 
 
 /* Final — card com luzes */
-.fin{position:relative;margin-top:-35vh;background:transparent;z-index:2;color:#fff;overflow:hidden;padding:clamp(140px,18vw,220px) max(16px,env(safe-area-inset-left,0px)) clamp(60px,8vw,110px);--e:0}
-.lights{position:absolute;inset:0 0 auto;height:min(70vh,700px);pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent,#000 30%);mask-image:linear-gradient(180deg,transparent,#000 30%)}
-.lights i{position:absolute;top:-20%;width:46%;height:120%;filter:blur(40px);opacity:.9;transform-origin:50% 0;animation:sway 9s ease-in-out infinite}
-.lights i:nth-child(1){left:-12%;background:radial-gradient(ellipse 50% 60% at 50% 20%,#F2C27D,#D9822B 35%,rgba(200,110,30,.35) 60%,transparent 75%)}
-.lights i:nth-child(2){left:27%;width:46%;background:radial-gradient(ellipse 40% 55% at 50% 0,rgba(224,140,50,.55),transparent 70%);animation-duration:11s;animation-delay:-3s}
-.lights i:nth-child(3){right:-12%;background:radial-gradient(ellipse 50% 60% at 50% 20%,#F6D6A6,#D9822B 35%,rgba(200,110,30,.35) 60%,transparent 75%);animation-delay:-5s}
-@keyframes sway{50%{transform:rotate(4deg) scaleY(1.06);opacity:.75}}
-.fcard{position:relative;max-width:1100px;margin:0 auto;background:linear-gradient(180deg,rgba(40,37,34,.82),rgba(18,17,16,.96) 45%);border:1px solid rgba(255,255,255,.1);border-radius:clamp(22px,2.4vw,32px);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding-top:clamp(36px,5vw,64px);padding-bottom:0;text-align:center;box-shadow:0 50px 120px -40px rgba(0,0,0,.8);opacity:calc(.2 + .8 * var(--e));transform:translateY(calc((1 - var(--e)) * 70px));transition:transform .4s,opacity .4s}
+.fin{position:relative;margin-top:-35vh;background:transparent;z-index:2;color:#fff;overflow-x:clip;overflow-y:visible;padding:clamp(140px,18vw,220px) max(16px,env(safe-area-inset-left,0px)) clamp(60px,8vw,110px);--e:0}
+.lights{position:absolute;left:0;right:0;top:-10vh;height:90vh;pointer-events:none;opacity:var(--e);transform:translateY(calc((1 - var(--e)) * -40px)) scaleY(calc(.7 + .3 * var(--e)));transform-origin:50% 0}
+.lights i{position:absolute;top:0;width:55%;height:100%;transform-origin:50% 0;animation:sway 9s ease-in-out infinite}
+.lights i:nth-child(1){left:-6%;background:radial-gradient(ellipse 38% 34% at 50% 50%,rgba(242,194,125,.9),rgba(217,130,43,.6) 35%,rgba(200,110,30,.18) 65%,transparent 100%)}
+.lights i:nth-child(2){left:22%;background:radial-gradient(ellipse 30% 30% at 50% 50%,rgba(224,140,50,.3),transparent 100%);animation-duration:11s;animation-delay:-3s}
+.lights i:nth-child(3){right:-6%;background:radial-gradient(ellipse 38% 34% at 50% 50%,rgba(246,214,166,.9),rgba(217,130,43,.6) 35%,rgba(200,110,30,.18) 65%,transparent 100%);animation-delay:-5s}
+@keyframes sway{50%{transform:rotate(3deg) scaleY(1.05);opacity:.8}}
+.fcard{position:relative;max-width:1100px;margin:0 auto;background:linear-gradient(180deg,rgba(40,37,34,.82),rgba(18,17,16,.96) 45%);border:1px solid rgba(255,255,255,.1);border-radius:clamp(22px,2.4vw,32px);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding-top:clamp(36px,5vw,64px);padding-bottom:0;text-align:center;box-shadow:0 50px 120px -40px rgba(0,0,0,.8);opacity:var(--e);transform:translateY(calc((1 - var(--e)) * 120px)) scale(calc(.92 + .08 * var(--e)));filter:blur(calc((1 - var(--e)) * 8px))}
 .fbrand{display:inline-flex;align-items:center;gap:12px}
 .fmark{width:46px;height:46px;border-radius:50%;background:var(--amb);display:grid;place-items:center;box-shadow:0 0 0 5px rgba(200,149,74,.18)}
 .fmark .raio{width:18px;color:#111;fill:#111}
@@ -423,6 +423,7 @@ footer{transition:color .3s}
 @media(max-width:640px){.fbar{flex-direction:column}.fbtn{padding:14px}.flogos img{height:24px}.flogos img.t{height:38px}.flogos b{font-size:18px}.ffoot{flex-direction:column;gap:8px}.ffoot .fl{display:none}.fin{padding-top:120px}}
 @media(prefers-reduced-motion:reduce){.lights i{animation:none}}
 
+.fcard>*{opacity:calc(var(--e) * 1.4 - .4);transform:translateY(calc((1 - var(--e)) * 30px))}
 /* scroll reveal (only where supported; content is visible otherwise) */
 @supports (animation-timeline: view()){
   .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
@@ -722,7 +723,7 @@ const Lc=[243,242,239],Dc=[11,11,12];let spin=0,last=performance.now();
 function frame(now){const dt=Math.min(50,now-last);last=now;if(!reduce)spin+=dt*0.006;const H=innerHeight;
  const rI=sIn.getBoundingClientRect(),rO=sOut.getBoundingClientRect();
  const pI=cl(-rI.top/(rI.height-H)),pO=cl((H*(innerWidth<=860?.45:.85)-rO.top)/(rO.height));
- const rC=document.getElementById('contato').getBoundingClientRect();const dC=sm(cl((H*.95-rC.top)/(H*.6)));
+ const rC=document.getElementById('contato').getBoundingClientRect();const dC=sm(cl((H*.9-rC.top)/(H*.75)));
  const dark=cl((H-rI.top)/(H*.8));document.getElementById('contato').style.setProperty('--e',dC.toFixed(3));
  const c=Lc.map((v,i)=>Math.round(v+(Dc[i]-v)*dark)).join(',');if(c!==window.__bg){window.__bg=c;document.body.style.background=`rgb(${c})`;}
  if(rI.bottom>0&&rI.top<H){const grow=seg(pI,0,.4),dive=seg(pI,.45,.9);const r=lerp(lerp(.22,.86,grow),9,dive*dive);
