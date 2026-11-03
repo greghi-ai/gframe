@@ -272,7 +272,7 @@ footer .col{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .ig-act span svg:first-child{fill:#E0A65A;stroke:#E0A65A}
 .ig-cap{margin:0;padding:2px 12px 14px;font-size:13px;line-height:1.4;color:#111}
 .ig-cap span{color:#8a8a8a}
-@media(max-width:860px){.igs{height:260vh}.iggrid{grid-template-columns:1fr}.igtext .two{font-size:28px}.iglist,.igtext .go{display:none}.igtext .mk{margin-bottom:10px}.phone{height:min(600px,72vh)}}
+@media(max-width:860px){.gout{margin-top:0}.gpanel{margin-top:-15vh}.igs{height:260vh}.iggrid{grid-template-columns:1fr}.igtext .two{font-size:28px}.iglist,.igtext .go{display:none}.igtext .mk{margin-bottom:10px}.phone{height:min(600px,72vh)}}
 
 /* GFRAME Global — 3D globe entrance / exit */
 .gin{position:relative;height:210vh;margin-top:clamp(56px,7vw,96px)}
@@ -573,7 +573,7 @@ const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),sm=t=>t*t*(3-2*t),lerp=(a,b,t)=>
 const Lc=[243,242,239],Dc=[11,11,12];let spin=0,last=performance.now();
 function frame(now){const dt=Math.min(50,now-last);last=now;if(!reduce)spin+=dt*0.006;const H=innerHeight;
  const rI=sIn.getBoundingClientRect(),rO=sOut.getBoundingClientRect();
- const pI=cl(-rI.top/(rI.height-H)),pO=cl((H*.85-rO.top)/(rO.height));
+ const pI=cl(-rI.top/(rI.height-H)),pO=cl((H*(innerWidth<=860?.45:.85)-rO.top)/(rO.height));
  const dark=cl((H-rI.top)/(H*.8))*(1-seg(pO,.35,.95));
  const c=Lc.map((v,i)=>Math.round(v+(Dc[i]-v)*dark));document.body.style.background=`rgb(${c})`;
  if(rI.bottom>0&&rI.top<H){const grow=seg(pI,0,.4),dive=seg(pI,.45,.9);const r=lerp(lerp(.22,.86,grow),9,dive*dive);
@@ -586,15 +586,32 @@ function frame(now){const dt=Math.min(50,now-last);last=now;if(!reduce)spin+=dt*
  requestAnimationFrame(frame)}
 requestAnimationFrame(frame);})();
 
-(()=>{const sec=document.getElementById('estudio'),ph=document.getElementById('phone'),feed=document.getElementById('igFeed'),scr=document.getElementById('igScreen'),items=[...document.querySelectorAll('#igList li')];if(!sec)return;
+(()=>{const sec=document.getElementById('estudio'),ph=document.getElementById('phone'),feed=document.getElementById('igFeed'),scr=document.getElementById('igScreen'),items0=0;if(!sec)return;
 const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),sm=t=>t*t*(3-2*t),seg=(p,a,b)=>sm(cl((p-a)/(b-a))),lerp=(a,b,t)=>a+(b-a)*t;let raf=0;
 const upd=()=>{raf=0;const r=sec.getBoundingClientRect(),H=innerHeight;const p=cl(-r.top/(r.height-H));const pre=cl((H-r.top)/H);
  const e=sm(pre)*0.6+seg(p,0,.18)*0.4;const x=seg(p,.9,1);
  ph.style.transform=`translateY(${lerp(55,0,e)}vh) rotateX(${lerp(32,0,e)}deg) rotateZ(${lerp(-6,0,e)}deg) scale(${lerp(.8,1,e)*(1-x*.08)})`;
  const posts=[...feed.querySelectorAll('.ig-post')];const max=feed.scrollHeight-scr.clientHeight;
  const f=seg(p,.2,.88);feed.style.transform=`translateY(${-f*max}px)`;
- const mid=f*max+scr.clientHeight*.45;let k=0;posts.forEach((po,i)=>{if(po.offsetTop<=mid)k=i});items.forEach((li,i)=>li.classList.toggle('on',i===k))};
+ const mid=f*max+scr.clientHeight*.45;let k=0;posts.forEach((po,i)=>{if(po.offsetTop<=mid)k=i});document.querySelectorAll('#igList li').forEach((li,i)=>li.classList.toggle('on',i===k))};
 addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});addEventListener('resize',upd);upd();})();
+
+/* Últimos 3 posts do Instagram — cole aqui a URL do feed JSON (Behold.so). Sem URL, ficam os posts fixos. */
+const IG_FEED_URL='';
+(()=>{if(!IG_FEED_URL)return;const feed=document.getElementById('igFeed'),list=document.getElementById('igList');if(!feed||!list)return;
+const esc=t=>String(t||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const av=feed.querySelector('.ig-av.sm')?feed.querySelector('.ig-av.sm').outerHTML:'';const acts=feed.querySelector('.ig-act')?feed.querySelector('.ig-act').outerHTML:'';
+const label={IMAGE:'Foto',VIDEO:'Vídeo',CAROUSEL_ALBUM:'Carrossel'};
+fetch(IG_FEED_URL).then(r=>r.ok?r.json():Promise.reject()).then(d=>{const posts=(Array.isArray(d)?d:(d.posts||[])).slice(0,3);if(!posts.length)return;
+ feed.querySelectorAll('.ig-post').forEach(p=>p.remove());
+ const html=posts.map(p=>{const t=p.mediaType||p.media_type;const img=(p.sizes&&p.sizes.large&&p.sizes.large.mediaUrl)||p.thumbnailUrl||p.thumbnail_url||p.mediaUrl||p.media_url;
+  const media=t==='VIDEO'&&(p.mediaUrl||p.media_url)?`<video src="${esc(p.mediaUrl||p.media_url)}" poster="${esc(img)}" autoplay muted loop playsinline></video>`:`<img src="${esc(img)}" alt="${esc((p.prunedCaption||p.caption||'Post do Instagram').slice(0,90))}" loading="lazy">`;
+  const cap=esc((p.prunedCaption||p.caption||'').slice(0,140));
+  return `<article class="ig-post"><a href="${esc(p.permalink)}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none"><div class="ig-ph">${av}<b>gframe.i</b><small>${label[t]||'Post'}</small></div><div class="ig-media">${media}</div>${acts}<p class="ig-cap"><b>gframe.i</b> ${cap}</p></a></article>`}).join('');
+ feed.insertAdjacentHTML('beforeend',html);
+ list.innerHTML=posts.map((p,i)=>{const t=p.mediaType||p.media_type;const c=(p.prunedCaption||p.caption||'').split('\n')[0].slice(0,48);const dt=p.timestamp?new Date(p.timestamp).toLocaleDateString('pt-BR',{day:'2-digit',month:'short'}):'';
+  return `<li${i?'':' class="on"'}><small>${label[t]||'Post'}</small><b>${esc(c||'Post GFRAME')}</b><span>${esc(dt)}</span></li>`}).join('');
+ dispatchEvent(new Event('resize'))}).catch(()=>{});})();
 </script>
 </body>
 </html>
