@@ -324,7 +324,7 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
 
 
 /* Contato — logo 3D */
-.ct{margin-top:clamp(56px,7vw,96px);padding-top:clamp(40px,8vh,90px);color:#fff;position:relative;overflow:hidden}
+.ct{margin-top:clamp(40px,5vw,72px);padding-top:clamp(40px,8vh,90px);color:#fff;position:relative;overflow:hidden}
 .ct::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 50% 45% at 50% 46%,rgba(200,149,74,.16),transparent 70%)}
 .ct-in{position:relative;max-width:1440px;margin-inline:auto;min-height:min(100vh,860px);display:grid;grid-template-columns:1fr auto 1fr;grid-template-rows:auto 1fr auto auto;align-items:center;padding:clamp(28px,4vw,48px) 0 clamp(28px,4vw,44px)}
 .ct-k{grid-column:1/-1;justify-self:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7d7a75;font-weight:600}
@@ -352,10 +352,10 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
 .ct-soc{grid-column:3;justify-self:end;align-self:end;display:flex;gap:22px;padding-right:clamp(16px,4vw,56px);font-size:11px;font-weight:700;letter-spacing:.08em}
 .ct-soc a{color:#C9C4BC;text-decoration:none}.ct-soc a:hover{color:var(--amb-2)}
 @media(max-width:860px){
- .ct-in{grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto auto auto;min-height:0;gap:14px 10px}
+ .ct-in{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto auto auto auto;min-height:0;gap:14px 10px}
  .stage3d{grid-column:1/-1;grid-row:2;justify-self:center;width:min(78vw,340px)}
  .pill{grid-row:3;height:auto;width:100%;padding:16px!important;border-radius:22px!important;gap:12px}
- .pill.left{margin-left:16px;width:calc(100% - 16px)}.pill.right{margin-right:16px;width:calc(100% - 16px)}
+ .pill.left{margin-left:12px;width:calc(100% - 12px)}.pill.right{margin-right:12px;width:calc(100% - 12px)}.pl-t{min-width:0}.pl-t b{font-size:16px}
  .pl-ic{width:48px;height:48px}.pl-ar{display:none}.pl-t em{display:none}
  .ct-mail{grid-column:1/-1;grid-row:4}
  .ct-h{grid-column:1/-1;grid-row:5;padding-inline:16px}
@@ -363,7 +363,7 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
 }
 
 
-.ct{background:transparent!important;--e:0}
+.ct{background:#060606!important;--e:0;margin-inline:max(8px,env(safe-area-inset-left,0px));border-radius:clamp(22px,2.6vw,36px);overflow:hidden}
 .ct::before{opacity:var(--e);background:radial-gradient(ellipse 55% 50% at 50% 44%,rgba(200,149,74,.2),transparent 70%)!important;animation:ctglow 7s ease-in-out infinite}
 @keyframes ctglow{50%{transform:scale(1.12);filter:hue-rotate(-8deg)}}
 .ct::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1.4px);background-size:18px 18px;mask-image:radial-gradient(ellipse at 50% 45%,#000 20%,transparent 70%);opacity:var(--e);pointer-events:none;animation:ctdots 30s linear infinite}
@@ -711,7 +711,7 @@ function frame(now){const dt=Math.min(50,now-last);last=now;if(!reduce)spin+=dt*
  const rI=sIn.getBoundingClientRect(),rO=sOut.getBoundingClientRect();
  const pI=cl(-rI.top/(rI.height-H)),pO=cl((H*(innerWidth<=860?.45:.85)-rO.top)/(rO.height));
  const rC=document.getElementById('contato').getBoundingClientRect();const dC=sm(cl((H*.5-rC.top)/(H*.42)));
- const dark=Math.max(cl((H-rI.top)/(H*.8))*(1-seg(pO,.3,.6)),dC);document.getElementById('contato').style.setProperty('--e',dC.toFixed(3));
+ const dark=cl((H-rI.top)/(H*.8))*(1-seg(pO,.3,.6));document.getElementById('contato').style.setProperty('--e',dC.toFixed(3));
  const c=Lc.map((v,i)=>Math.round(v+(Dc[i]-v)*dark)).join(',');if(c!==window.__bg){window.__bg=c;document.body.style.background=`rgb(${c})`;}
  if(rI.bottom>0&&rI.top<H){const grow=seg(pI,0,.4),dive=seg(pI,.45,.9);const r=lerp(lerp(.22,.86,grow),9,dive*dive);
   const drift=Math.sin(spin*0.004)*4*(1-grow);
