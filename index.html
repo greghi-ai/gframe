@@ -322,29 +322,33 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
 #glDrawer{border-top:0;padding-top:0}
 
 
-/* CTA final */
-.cta2{margin-top:clamp(56px,7vw,96px);border-radius:var(--r);background:var(--ink);color:#fff;padding:clamp(28px,5vw,64px);position:relative;overflow:hidden;display:grid;gap:clamp(28px,4vw,44px)}
-.cta2>.raio{position:absolute;right:-60px;top:-50px;width:clamp(220px,28vw,380px);height:auto;color:var(--amb);opacity:.14;animation:float 7s ease-in-out infinite}
-.c2top{position:relative;max-width:760px}
+/* Contato — entrada no scroll */
+.cwrap{position:relative;height:260vh;margin-top:clamp(56px,7vw,96px);background:var(--page)}
+.cstick{position:sticky;top:0;height:100vh;overflow:hidden;--p:0}
+.cstick::before{content:"";position:absolute;inset:0;background:#0B0B0C;opacity:var(--dk,0);z-index:0}
+.cstick .cbolt{animation:none;right:auto;position:absolute;fill:var(--amb);left:50%;top:50%;width:min(36vw,260px);height:auto;color:var(--amb);transform:translate(-50%,calc(-50% + var(--by,0px))) scale(var(--bs,.4));z-index:1;will-change:transform;opacity:var(--bo,1)}
+.cintro{position:absolute;inset:0;display:grid;place-content:center;padding-top:clamp(120px,16vh,180px);text-align:center;z-index:2;opacity:var(--io,0);pointer-events:none;color:var(--ic,#0B0B0C)}
+.cintro small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600}
+.cintro h2{margin:12px 0 0;font-weight:600;letter-spacing:-.05em;line-height:.92;font-size:clamp(48px,8vw,120px)}
+.cintro h2 span{color:var(--amb)}
+.cpanel{position:absolute;inset:0;z-index:3;display:grid;align-items:center;color:#fff;opacity:var(--po,0);transform:translateY(calc((1 - var(--po,0)) * 40px)) scale(calc(.96 + .04 * var(--po,0)));pointer-events:var(--pe,none)}
+.cpin{width:100%;display:grid;gap:clamp(24px,4vw,44px)}
+.c2top{max-width:760px}
 .c2k{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--amb-2);font-weight:600}
-.cta2 h2{margin:14px 0 0;font-weight:600;letter-spacing:-.045em;line-height:.98;font-size:clamp(38px,5.6vw,80px);text-wrap:balance}
-.cta2 h2 span{color:var(--amb-2)}
+.cpanel h2{margin:14px 0 0;font-weight:600;letter-spacing:-.045em;line-height:.98;font-size:clamp(36px,5.4vw,78px);text-wrap:balance}
+.cpanel h2 span{color:var(--amb-2)}
 .c2top p{margin:18px 0 0;max-width:46ch;color:#B9B4AC;font-size:15px}
-.c2grid{position:relative;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:12px}
-.c2card{display:grid;gap:6px;align-content:start;padding:20px;border-radius:20px;background:#1B1A19;border:1px solid #2A2928;text-decoration:none;color:#fff;position:relative;min-height:150px}
-.c2card small{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8A8782;font-weight:600}
-.c2card b{font-size:18px;letter-spacing:-.02em;font-weight:600;line-height:1.15}
-.c2card span{font-size:13px;color:#9A958D}
-.c2card.main{background:var(--amb);border-color:var(--amb);color:var(--ink);transition:transform .3s}
-.c2card.main:hover{transform:translateY(-4px)}
-.c2card.main small{color:rgba(11,11,12,.6)}.c2card.main span{color:var(--ink);font-weight:600;font-size:15px}
-.c2card.main b{font-size:clamp(24px,2.4vw,32px)}
-.c2card.main i{position:absolute;right:16px;bottom:16px;width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-style:normal;transition:transform .3s}
-.c2card.main:hover i{transform:rotate(45deg)}
-.c2steps{position:relative;display:flex;gap:10px 28px;flex-wrap:wrap;border-top:1px solid #2A2928;padding-top:20px;font-size:14px;color:#C9C4BC}
-.c2steps b{color:var(--amb-2);font-weight:600;margin-right:6px}
-@media(max-width:900px){.c2grid{grid-template-columns:1fr 1fr}.c2card.main{grid-column:1/-1;min-height:140px}}
-@media(max-width:480px){.c2grid{grid-template-columns:1fr}.c2card{min-height:0}}
+.c3grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.c3{position:relative;display:grid;gap:8px;align-content:start;padding:22px;border-radius:20px;background:#1B1A19;border:1px solid #2A2928;color:#fff;text-decoration:none;min-height:130px;transition:transform .3s,background .3s,border-color .3s}
+.c3 small{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8A8782;font-weight:600}
+.c3 b{font-size:clamp(18px,1.8vw,24px);letter-spacing:-.02em;font-weight:600;word-break:break-word}
+.c3 i{position:absolute;right:16px;bottom:16px;width:38px;height:38px;border-radius:50%;background:#2A2928;display:grid;place-items:center;font-style:normal;transition:transform .3s,background .3s}
+.c3:hover{transform:translateY(-4px);border-color:var(--amb)}.c3:hover i{background:var(--amb);color:var(--ink);transform:rotate(45deg)}
+.c3.wpp{background:var(--amb);border-color:var(--amb);color:var(--ink)}.c3.wpp small{color:rgba(11,11,12,.6)}.c3.wpp i{background:var(--ink);color:#fff}
+.cbase{display:flex;align-items:baseline;gap:14px;border-top:1px solid #2A2928;padding-top:18px}
+.cbase span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8A8782;font-weight:600}
+.cbase b{font-size:clamp(20px,2.4vw,30px);font-weight:600;letter-spacing:-.03em}.cbase em{font-style:normal;color:var(--amb-2)}
+@media(max-width:760px){.c3grid{grid-template-columns:1fr}.c3{min-height:0}.cwrap{height:230vh}.c2top p{font-size:14px}}
 
 /* scroll reveal (only where supported; content is visible otherwise) */
 @supports (animation-timeline: view()){
@@ -540,24 +544,28 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
 
 
 
-<section class="pad" id="contato">
-  <div class="col cta2">
-    <svg class="raio big" viewBox="80 0 300 443" aria-hidden="true"><path d="M197.19,154.58c-11.29,10.97-10.66,27.41-17.99,40.56-6.3,11.3-25.7,31.45-11.75,43.52,8.1,7.01,21.07,5.25,30.43,2.08,12.56-4.25,31.65-17.25,43-3.36,12.79,15.66-10,32.23-19.61,41.93-16.22,16.37-28.370,36.59-29.34,60.28-.42,10.27,3.49,21.75.21,31.71-2.48,7.53-13.53,19.23-20.16,23.64-5.37,3.58-8.67.83-8.41-5.26,4.45-18.93,11.04-37.4,16.69-56.03,4.44-14.64,9.07-29.31,13.24-44.02,3.17-11.17,9.22-25.04-5.51-30.28-15.95-5.68-36.61,1.51-53.67-1.59-20.58-3.74-12.6-20.67-1.96-30.69,15.42-14.53,29.73-19.99,37.8-41.79,2.99-8.07,3.58-16.95,6.73-25.05,9.49-24.43,31.86-24.93,50.78-37.97,13.82-9.53,26.95-24.75,26.66-42.48l.77,2.81c1.64,10.12,3.35,20.41.64,30.52-7.57,28.25-40.78,24.21-58.57,41.49Z"/>
+<section class="cwrap" id="contato">
+  <div class="cstick">
+    <svg class="raio cbolt" viewBox="80 0 300 443" aria-hidden="true"><path d="M197.19,154.58c-11.29,10.97-10.66,27.41-17.99,40.56-6.3,11.3-25.7,31.45-11.75,43.52,8.1,7.01,21.07,5.25,30.43,2.08,12.56-4.25,31.65-17.25,43-3.36,12.79,15.66-10,32.23-19.61,41.93-16.22,16.37-28.370,36.59-29.34,60.28-.42,10.27,3.49,21.75.21,31.71-2.48,7.53-13.53,19.23-20.16,23.64-5.37,3.58-8.67.83-8.41-5.26,4.45-18.93,11.04-37.4,16.69-56.03,4.44-14.64,9.07-29.31,13.24-44.02,3.17-11.17,9.22-25.04-5.51-30.28-15.95-5.68-36.61,1.51-53.67-1.59-20.58-3.74-12.6-20.67-1.96-30.69,15.42-14.53,29.73-19.99,37.8-41.79,2.99-8.07,3.58-16.95,6.73-25.05,9.49-24.43,31.86-24.93,50.78-37.97,13.82-9.53,26.95-24.75,26.66-42.48l.77,2.81c1.64,10.12,3.35,20.41.64,30.52-7.57,28.25-40.78,24.21-58.57,41.49Z"/>
 <path d="M297.49,47.5c1.52,1.53,1.69,4.56,1.49,6.6-9.73,34.17-20.84,67.94-30.81,102.04-1.98,6.77-4.98,12.17-3.08,19.54,3.26,12.67,23.9,10.74,33.8,10.32,12.03-.52,47.2-6.51,41.22,16.31-2.89,11.03-27.33,25.44-35.79,34.92-12.69,14.22-12.33,22.08-17.11,39.29-8.43,30.35-32.51,29.38-53.83,45.23-11.55,8.58-23.44,22.12-24.81,37.03-.09,1.02.12,2.17,0,3.15-.05.4-.16.84-.57.42-3.21-16.77-5.77-35.13,8.15-47.82,16.95-15.45,44.17-13.25,55.37-35.96,4.42-8.97,5.31-19.46,9.53-28.26,5.7-11.9,23.82-26.89,16.43-41.14-5.1-9.84-17.35-9.92-26.83-7.91-10.75,2.27-19.85,9.02-30.77,10.46-12.08,1.59-24.02-3.21-22.72-17.28,1.34-14.45,28.62-32.92,37.57-45.46,9.79-13.73,15.71-31.21,15.41-48.18-.18-9.77-2.86-20.28.91-29.7,2.84-7.09,12.56-16.53,18.25-21.83,1.96-1.83,5.85-4.13,8.21-1.76Z"/>
 <path d="M222.57,161.64c-10.3,9.4-22.11,21.73-21.47,36.78.28,6.6,3.42,12.33,3.97,18.36,1.15,12.62-17.92,15.93-20.73,3.55-2.54-11.2,7.42-29.49,13.95-38.46s14.64-15.67,24.28-20.23Z"/>
 <path d="M240.61,280.45c8.76-8.27,18.44-18.92,20-31.38,1.2-9.55-3.15-13.59-3.94-21.47-1.27-12.79,16.84-17.48,20.5-3.89,1.87,6.95-.86,13.66-3.68,19.92-6.85,15.2-17.27,29.86-32.88,36.83Z"/></svg>
-    <div class="c2top">
-      <span class="c2k">Contato</span>
-      <h2>Toda carreira tem uma história.<br><span>Bora contar a sua?</span></h2>
-      <p>Atleta, família, empresário ou marca. Conta pra gente o momento e a gente monta a forma certa de mostrar.</p>
+    <div class="cintro pad"><small>Contato</small><h2>Falar com a <span>GFRAME.</span></h2></div>
+    <div class="cpanel pad">
+      <div class="col cpin">
+        <div class="c2top">
+          <span class="c2k">Contato</span>
+          <h2>Toda carreira tem uma história.<br><span>Bora contar a sua?</span></h2>
+          <p>Atleta, família, empresário ou marca. Conta pra gente o momento e a gente monta a forma certa de mostrar.</p>
+        </div>
+        <div class="c3grid">
+          <a class="c3 wpp" id="cWpp" href="#" target="_blank" rel="noopener"><small>WhatsApp</small><b id="cWppTxt">Número em breve</b><i aria-hidden="true">↗</i></a>
+          <a class="c3" id="cMail" href="#"><small>E-mail</small><b id="cMailTxt">E-mail em breve</b><i aria-hidden="true">↗</i></a>
+          <a class="c3" href="https://ig.me/m/gframe.i" target="_blank" rel="noopener"><small>Instagram</small><b>@gframe.i</b><i aria-hidden="true">↗</i></a>
+        </div>
+        <div class="cbase"><span>Base</span><b>Santos <em>·</em> Gênova</b></div>
+      </div>
     </div>
-    <div class="c2grid">
-      <a class="c2card main" href="https://ig.me/m/gframe.i" target="_blank" rel="noopener"><small>Mais rápido</small><b>Chama no direct</b><span>@gframe.i</span><i aria-hidden="true">↗</i></a>
-      <div class="c2card"><small>Pra quem</small><b>Atletas e agências</b><span>Da base ao profissional, no Brasil e fora.</span></div>
-      <div class="c2card"><small>O que entra</small><b>Identidade, foto, motion e séries</b><span>Convocação, pré-jogo, matchday, editorial.</span></div>
-      <div class="c2card"><small>Base</small><b>Santos, SP</b><span>Trabalho remoto pro mundo todo.</span></div>
-    </div>
-    <div class="c2steps"><span><b>01</b> Você manda o momento</span><span><b>02</b> A gente propõe a ideia</span><span><b>03</b> Entrega em 24 a 48h</span></div>
   </div>
 </section>
 </main>
@@ -685,6 +693,23 @@ fetch(IG_FEED_URL).then(r=>r.ok?r.json():Promise.reject()).then(d=>{const all=(A
 fs.forEach(b=>b.addEventListener('click',()=>{fs.forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;box.querySelectorAll('.vid').forEach(v=>{v.hidden=!(f==='all'||v.dataset.cat===f);if(v.hidden){const vi=v.querySelector('video');vi.pause()}});box.scrollTo({left:0,behavior:'smooth'})}));
 const st=()=>{const v=[...box.querySelectorAll('.vid:not([hidden])')][0];return v?v.offsetWidth+14:300};
 document.getElementById('vPrev').addEventListener('click',()=>box.scrollBy({left:-st(),behavior:'smooth'}));document.getElementById('vNext').addEventListener('click',()=>box.scrollBy({left:st(),behavior:'smooth'}));})();
+
+/* Contato — preencha aqui */
+const CONTACT={whatsapp:'',email:''};
+(()=>{const w=CONTACT.whatsapp.replace(/\D/g,''),m=CONTACT.email.trim();
+if(w){const a=document.getElementById('cWpp');a.href='https://wa.me/'+w;document.getElementById('cWppTxt').textContent=CONTACT.whatsapp}
+if(m){const a=document.getElementById('cMail');a.href='mailto:'+m;document.getElementById('cMailTxt').textContent=m}})();
+(()=>{const sec=document.getElementById('contato'),st=sec&&sec.querySelector('.cstick');if(!st)return;
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),sm=t=>t*t*(3-2*t),seg=(p,a,b)=>sm(cl((p-a)/(b-a))),lerp=(a,b,t)=>a+(b-a)*t;let raf=0;
+const upd=()=>{raf=0;const r=sec.getBoundingClientRect(),H=innerHeight;const p=cl(-r.top/(r.height-H));const pre=sm(cl((H-r.top)/H));
+ const grow=seg(p,0,.25),dive=seg(p,.28,.6);
+ const bs=lerp(.2,.55,pre*.5+grow*.5)*Math.pow(110,dive*dive);
+ st.style.setProperty('--bs',bs.toFixed(3));st.style.setProperty('--bo',(1-seg(p,.5,.62)).toFixed(3));
+ st.style.setProperty('--dk',seg(p,.3,.5).toFixed(3));st.style.setProperty('--by',(lerp(-Math.min(innerHeight*.2,180),0,seg(p,.22,.36))).toFixed(1)+'px');
+ st.style.setProperty('--io',(seg(p,.04,.14)*(1-seg(p,.28,.38))).toFixed(3));
+ st.style.setProperty('--ic',p<.3?'#0B0B0C':'#fff');
+ const po=seg(p,.55,.72);st.style.setProperty('--po',po.toFixed(3));st.style.setProperty('--pe',po>.6?'auto':'none')};
+addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});addEventListener('resize',upd);upd();})();
 </script>
 </body>
 </html>
