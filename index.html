@@ -426,6 +426,39 @@ footer{transition:color .3s}
 .fcard>*{opacity:calc(var(--e) * 1.4 - .4);transform:translateY(calc((1 - var(--e)) * 30px))}
 .vids.hl6{grid-auto-flow:row;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-columns:auto;overflow:visible}
 @media(max-width:1000px){.vids.hl6{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:560px){.vids.hl6{grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:46%;overflow-x:auto}}
+
+/* Hero editorial */
+.hx.ed{max-height:calc(100vh - 90px);min-height:560px}
+.hx.ed .slide img{filter:saturate(.9) contrast(1.05)}
+.hx.ed .shade{background:linear-gradient(180deg,rgba(8,8,9,.55) 0%,rgba(8,8,9,0) 22%,rgba(8,8,9,0) 45%,rgba(8,8,9,.88) 100%),linear-gradient(90deg,rgba(8,8,9,.55),rgba(8,8,9,0) 55%)}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.12;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.ed-top{position:absolute;left:clamp(20px,3.4vw,44px);right:clamp(20px,3.4vw,44px);top:clamp(18px,2.6vw,30px);display:flex;justify-content:space-between;align-items:baseline;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.85)}
+.ed-top em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;text-transform:none;letter-spacing:0;font-size:15px;color:var(--amb-2)}
+.ed-n{font-variant-numeric:tabular-nums}.ed-n b{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(34px,3.6vw,52px);letter-spacing:-.02em;color:#fff;margin-right:4px}
+.ed-v{position:absolute;right:clamp(14px,1.6vw,22px);top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600}
+.ed-copy{position:absolute;left:clamp(20px,3.4vw,44px);bottom:clamp(22px,3.4vw,44px);max-width:min(760px,64%);display:grid;gap:10px}
+.ed-role{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--amb-2)}
+.ed-name{margin:0;max-width:100%;font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(64px,10.5vw,170px);line-height:.86;letter-spacing:-.02em;color:#fff;overflow:hidden;padding-bottom:.08em;white-space:nowrap}
+.ed-name .wd{display:inline-block;white-space:nowrap}.ed-name .wd span{display:inline-block;animation:edUp .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes edUp{from{transform:translateY(105%);opacity:0}}
+.ed-rule{height:1px;background:rgba(255,255,255,.35);width:0;animation:edRule 1.1s .25s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes edRule{to{width:min(420px,100%)}}
+.ed-t{margin:2px 0 0;font-weight:600;letter-spacing:-.03em;line-height:1.05;font-size:clamp(20px,2.3vw,34px);max-width:22ch;text-wrap:balance}
+.ed-t .acc{color:var(--amb-2)}
+.ed-t .w{display:inline-block;animation:wordin .8s cubic-bezier(.2,.7,.2,1) both}
+.ed-role.in,#edC.in{animation:fadeUp .8s .2s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}}
+.ed-side{position:absolute;right:clamp(40px,4.4vw,64px);bottom:clamp(22px,3.4vw,44px);width:min(270px,26%);display:grid;gap:18px}
+.ed-side p{margin:0;font-size:13px;line-height:1.5;color:rgba(255,255,255,.75)}
+.ed-idx{display:grid;border-top:1px solid rgba(255,255,255,.25)}
+.ed-idx button{all:unset;cursor:pointer;position:relative;display:flex;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.5);font-size:13px;font-weight:500;transition:color .3s}
+.ed-idx button b{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;font-size:16px}
+.ed-idx button:hover,.ed-idx button.on{color:#fff}
+.ed-idx button.on b{color:var(--amb-2)}
+.ed-idx button i{position:absolute;left:0;bottom:-1px;height:1px;width:0;background:var(--amb-2)}
+.ed-idx button.on i{animation:fill var(--dur,6s) linear forwards}
+@media(max-width:860px){.hx.ed{aspect-ratio:3/4;max-height:none;min-height:0}.ed-copy{max-width:none;right:20px;bottom:120px}.ed-name{font-size:clamp(54px,16vw,96px);white-space:normal}.ed-side{left:20px;right:20px;width:auto;bottom:16px}.ed-side p{display:none}.ed-idx{grid-template-columns:repeat(4,1fr);border-top:0}.ed-idx button{border-bottom:1px solid rgba(255,255,255,.2);flex-direction:column;gap:2px;font-size:11px}.ed-idx button span{display:none}.ed-v{display:none}.ed-top span:first-child{font-size:9px}}
+
 /* scroll reveal (only where supported; content is visible otherwise) */
 @supports (animation-timeline: view()){
   .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
@@ -454,14 +487,18 @@ footer{transition:color .3s}
     </div>
   </div>
 
-  <header class="col hx" id="top" aria-roledescription="carrossel" aria-label="Atletas GFRAME">
-    <div class="slide on" data-who="Diógenes · Goleiro · Santos FC" data-t="Sua história merece ser |contada.|"><img src="img/hero_game.jpg" alt="Diógenes em defesa pelo Santos" style="object-position:50% 45%"></div>
-    <div class="slide" data-who="Robinho Jr. · Genoa U20 · Seleção Sub-20" data-t="De Santos a Gênova. |Agora, a Seleção.|"><img src="img/h_robinho.jpg" alt="Robinho Jr. em campo pelo Genoa" loading="lazy" style="object-position:50% 35%"></div>
-    <div class="slide" data-who="Jonathan Jesus · Zagueiro · Cruzeiro" data-t="Da quadra de São Vicente à |Seleção principal.|"><img src="img/h_jonathan_mural.jpg" alt="Mural de Jonathan Jesus" loading="lazy" style="object-position:50% 40%"></div>
-    <div class="slide" data-who="Dudu · Marca pessoal" data-t="Uma marca que chega |antes do nome.|"><img src="img/h_dudu.jpg" alt="Retrato de Dudu" loading="lazy" style="object-position:50% 25%"></div>
-    <div class="shade"></div>
-    <div class="hx-copy" aria-live="polite"><span class="who" id="who"></span><h1 id="ht"></h1></div>
-    <div class="bars" id="bars"></div>
+  <header class="col hx ed" id="top" aria-roledescription="carrossel" aria-label="Atletas GFRAME">
+    <div class="slide on" data-name="Diógenes" data-role="Goleiro · Santos FC" data-t="Sua história merece ser |contada.|" data-c="Maracanã, Vila, Libertadores. A imagem de quem segura o resultado."><img src="img/hero_game.jpg" alt="Diógenes" style="object-position:50% 45%"></div><div class="slide" data-name="Robinho Jr." data-role="Atacante · Genoa · Seleção Sub-20" data-t="De Santos a Gênova. |Agora, a Seleção.|" data-c="Do primeiro passo na Serie A à convocação, contado de perto."><img src="img/h_robinho.jpg" alt="Robinho Jr." loading="lazy" style="object-position:50% 35%"></div><div class="slide" data-name="Jonathan Jesus" data-role="Zagueiro · Cruzeiro · Seleção" data-t="Da quadra de São Vicente à |Seleção principal.|" data-c="O atacante que virou zagueiro e chegou à camisa amarela."><img src="img/h_jonathan_mural.jpg" alt="Jonathan Jesus" loading="lazy" style="object-position:50% 40%"></div><div class="slide" data-name="Dudu" data-role="Juventus U20" data-t="Uma marca que chega |antes do nome.|" data-c="Identidade construída antes do estádio cheio."><img src="img/h_dudu.jpg" alt="Dudu" loading="lazy" style="object-position:50% 25%"></div>
+    <div class="shade"></div><div class="grain"></div>
+    <div class="ed-top"><span>GFRAME <em>—</em> Edição 01 · Novembro 2026</span><span class="ed-n"><b id="edN">01</b> / 04</span></div>
+    <div class="ed-v" aria-hidden="true">Sua história merece ser contada</div>
+    <div class="ed-copy" aria-live="polite">
+      <span class="ed-role" id="edRole"></span>
+      <h1 class="ed-name" id="edName"></h1>
+      <div class="ed-rule"></div>
+      <p class="ed-t" id="ht"></p>
+    </div>
+    <div class="ed-side"><p id="edC"></p><nav class="ed-idx" id="edIdx"><button type="button" data-k="0"><b>01</b><span>Diógenes</span><i></i></button><button type="button" data-k="1"><b>02</b><span>Robinho Jr.</span><i></i></button><button type="button" data-k="2"><b>03</b><span>Jonathan Jesus</span><i></i></button><button type="button" data-k="3"><b>04</b><span>Dudu</span><i></i></button></nav></div>
   </header>
 </div>
 
@@ -615,14 +652,15 @@ footer{transition:color .3s}
 b.addEventListener('click',e=>{e.stopPropagation();set(p.hidden)});document.addEventListener('click',e=>{if(!p.contains(e.target))set(false)});
 p.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape')set(false)});})();
 
-(()=>{const slides=[...document.querySelectorAll('.hx .slide')],who=document.getElementById('who'),ht=document.getElementById('ht'),bars=document.getElementById('bars');
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;const DUR=6000;let i=0,timer;
-slides.forEach((s,k)=>{const btn=document.createElement('button');btn.type='button';btn.setAttribute('aria-label','Ver '+s.dataset.who.split(' · ')[0]);btn.innerHTML='<i></i><span>'+s.dataset.who.split(' · ')[0]+'</span>';btn.style.setProperty('--dur',DUR+'ms');btn.onclick=()=>go(k);bars.appendChild(btn)});
-const render=t=>{const parts=t.split('|');let n=0;ht.innerHTML=parts.map((p,idx)=>p.trim().split(/\s+/).filter(Boolean).map(w=>`<span class="w" style="animation-delay:${(n++)*60}ms">${w}</span>`).join(' ')).map((h,idx)=>idx===1?`<span class="acc">${h}</span>`:h).join(' ')};
-function go(k){slides[i].classList.remove('on');i=(k+slides.length)%slides.length;slides[i].classList.add('on');who.textContent=slides[i].dataset.who;render(slides[i].dataset.t);
- [...bars.children].forEach((x,j)=>{x.classList.remove('on','done');void x.offsetWidth;if(j<i)x.classList.add('done');if(j===i)x.classList.add('on')});
+(()=>{const slides=[...document.querySelectorAll('.hx .slide')],ht=document.getElementById('ht'),nm=document.getElementById('edName'),rl=document.getElementById('edRole'),cc=document.getElementById('edC'),nn=document.getElementById('edN'),idx=[...document.querySelectorAll('#edIdx button')];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;const DUR=6500;let i=0,timer;
+const render=t=>{const parts=t.split('|');let n=0;ht.innerHTML=parts.map(p=>p.trim().split(/\s+/).filter(Boolean).map(w=>`<span class="w" style="animation-delay:${300+(n++)*50}ms">${w}</span>`).join(' ')).map((h,k)=>k===1?`<span class="acc">${h}</span>`:h).join(' ')};
+function go(k){slides[i].classList.remove('on');i=(k+slides.length)%slides.length;const s=slides[i];s.classList.add('on');
+ let q=0;nm.innerHTML=s.dataset.name.split(' ').map(w=>'<span class="wd">'+[...w].map(ch=>`<span style="animation-delay:${(q++)*35}ms">${ch}</span>`).join('')+'</span>').join(' ');nm.style.fontSize='';requestAnimationFrame(()=>{const max=nm.parentElement.clientWidth;const w=nm.scrollWidth;if(w>max){nm.style.fontSize=(parseFloat(getComputedStyle(nm).fontSize)*max/w*.97)+'px'}});rl.textContent=s.dataset.role;cc.textContent=s.dataset.c;nn.textContent=String(i+1).padStart(2,'0');render(s.dataset.t);
+ [rl,cc].forEach(e=>{e.classList.remove('in');void e.offsetWidth;e.classList.add('in')});
+ idx.forEach((x,q)=>{x.classList.remove('on');void x.offsetWidth;x.classList.toggle('on',q===i);x.style.setProperty('--dur',DUR+'ms')});
  clearTimeout(timer);if(!reduce)timer=setTimeout(()=>go(i+1),DUR)}
-go(0);})();
+idx.forEach((b,q)=>b.addEventListener('click',()=>go(q)));go(0);})();
 
 (()=>{const m=document.getElementById('robSlides');if(!m)return;const f=[...m.querySelectorAll('.f')],d=[...m.querySelectorAll('.dots i')];let k=0;
 if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;setInterval(()=>{f[k].classList.remove('on');d[k].classList.remove('on');k=(k+1)%f.length;f[k].classList.add('on');d[k].classList.add('on')},2600)})();
