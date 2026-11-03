@@ -236,7 +236,7 @@ footer .col{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 
 /* Estúdio — Instagram phone opens on scroll */
-.igs{position:relative;height:300vh;margin-top:clamp(40px,5vw,72px)}
+.igs{position:relative;height:220vh;margin-top:clamp(40px,5vw,72px)}
 .igstick{position:sticky;top:0;height:100vh;display:grid;align-items:center;overflow:hidden}
 .iggrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;width:100%}
 .iglist{list-style:none;margin:clamp(24px,3vw,40px) 0 28px;padding:0;display:grid;gap:4px}
@@ -273,6 +273,32 @@ footer .col{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .ig-cap{margin:0;padding:2px 12px 14px;font-size:13px;line-height:1.4;color:#111}
 .ig-cap span{color:#8a8a8a}
 @media(max-width:860px){.gout{margin-top:0}.gpanel{margin-top:-15vh}.igs{height:260vh}.iggrid{grid-template-columns:1fr}.igtext .two{font-size:28px}.iglist,.igtext .go{display:none}.igtext .mk{margin-bottom:10px}.phone{height:min(600px,72vh)}}
+
+
+/* Estúdio — Instagram profile (dark) */
+.igp{--w:min(520px,92vw);width:var(--w);height:auto;background:#0C0C0D;color:#F5F5F5;border-radius:22px;padding:22px 18px 0;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.25)}
+.igh{display:flex;gap:18px;align-items:center}
+.igav{flex:none;width:76px;height:76px;border-radius:50%;background:#0C0C0D;border:1.5px solid #3a3a3a;display:grid;place-items:center}
+.igav .raio{width:26px;color:#EDEDED}
+.igm b{display:block;font-size:19px;font-weight:700;letter-spacing:-.01em}
+.igm span{display:block;font-size:13px;margin-top:4px}
+.igm em{display:block;font-style:normal;font-size:13px;margin-top:6px;color:#DADADA}
+.igbtn{display:block;text-align:center;margin:16px 0 4px;background:#262628;border-radius:10px;padding:9px;font:600 13px var(--sans);color:#fff;text-decoration:none}
+.hls{display:flex;gap:12px;overflow:hidden;padding:16px 0 8px}
+.hl{display:grid;justify-items:center;gap:6px;min-width:0}
+.hl span{width:62px;height:62px;border-radius:50%;padding:3px;border:1.5px solid #3a3a3a;display:block}
+.hl img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+.hl b{font-size:10.5px;font-weight:600;white-space:nowrap}
+.igtabs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid #222;margin:6px -18px 0}
+.igtabs i{display:grid;place-items:center;padding:10px 0;border-bottom:1.5px solid transparent;opacity:.55}
+.igtabs i.on{border-color:#fff;opacity:1}
+.igtabs svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:1.6}
+.iggr{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:2px -18px 0}
+.tile{position:relative;aspect-ratio:3/4;overflow:hidden;background:#1a1a1a;display:block;transition:transform .35s,box-shadow .35s;transform-origin:center}
+.tile img{width:100%;height:100%;object-fit:cover;display:block}
+.tile .ty{position:absolute;top:8px;right:8px;width:18px;height:18px;fill:none;stroke:#fff;stroke-width:1.8;filter:drop-shadow(0 1px 3px rgba(0,0,0,.6))}
+.tile.on{box-shadow:inset 0 0 0 3px var(--amb-2)}
+@media(max-width:560px){.igp{padding:16px 12px 0}.igav{width:62px;height:62px}.igm b{font-size:16px}.hl span{width:52px;height:52px}.hls{gap:8px}.igtabs,.iggr{margin-left:-12px;margin-right:-12px}}
 
 /* GFRAME Global — 3D globe entrance / exit */
 .gin{position:relative;height:210vh;margin-top:clamp(56px,7vw,96px)}
@@ -368,23 +394,18 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
         <a class="go" href="https://www.instagram.com/gframe.i/" target="_blank" rel="noopener">Ver no Instagram <b aria-hidden="true">↗</b></a>
       </div>
       <div class="igstage">
-        <div class="phone" id="phone">
-                    <div class="ig-screen" id="igScreen"><div class="ig-feed" id="igFeed">
-            <div class="ig-prof"><span class="ig-av"><svg class="raio" viewBox="80 0 300 443" aria-hidden="true"><path d="M197.19,154.58c-11.29,10.97-10.66,27.41-17.99,40.56-6.3,11.3-25.7,31.45-11.75,43.52,8.1,7.01,21.07,5.25,30.43,2.08,12.56-4.25,31.65-17.25,43-3.36,12.79,15.66-10,32.23-19.61,41.93-16.22,16.37-28.370,36.59-29.34,60.28-.42,10.27,3.49,21.75.21,31.71-2.48,7.53-13.53,19.23-20.16,23.64-5.37,3.58-8.67.83-8.41-5.26,4.45-18.93,11.04-37.4,16.69-56.03,4.44-14.64,9.07-29.31,13.24-44.02,3.17-11.17,9.22-25.04-5.51-30.28-15.95-5.68-36.61,1.51-53.67-1.59-20.58-3.74-12.6-20.67-1.96-30.69,15.42-14.53,29.73-19.99,37.8-41.79,2.99-8.07,3.58-16.95,6.73-25.05,9.49-24.43,31.86-24.93,50.78-37.97,13.82-9.53,26.95-24.75,26.66-42.48l.77,2.81c1.64,10.12,3.35,20.41.64,30.52-7.57,28.25-40.78,24.21-58.57,41.49Z"/>
+        <div class="phone igp" id="phone">
+          <div class="igh">
+            <span class="igav"><svg class="raio" viewBox="80 0 300 443" aria-hidden="true"><path d="M197.19,154.58c-11.29,10.97-10.66,27.41-17.99,40.56-6.3,11.3-25.7,31.45-11.75,43.52,8.1,7.01,21.07,5.25,30.43,2.08,12.56-4.25,31.65-17.25,43-3.36,12.79,15.66-10,32.23-19.61,41.93-16.22,16.37-28.370,36.59-29.34,60.28-.42,10.27,3.49,21.75.21,31.71-2.48,7.53-13.53,19.23-20.16,23.64-5.37,3.58-8.67.83-8.41-5.26,4.45-18.93,11.04-37.4,16.69-56.03,4.44-14.64,9.07-29.31,13.24-44.02,3.17-11.17,9.22-25.04-5.51-30.28-15.95-5.68-36.61,1.51-53.67-1.59-20.58-3.74-12.6-20.67-1.96-30.69,15.42-14.53,29.73-19.99,37.8-41.79,2.99-8.07,3.58-16.95,6.73-25.05,9.49-24.43,31.86-24.93,50.78-37.97,13.82-9.53,26.95-24.75,26.66-42.48l.77,2.81c1.64,10.12,3.35,20.41.64,30.52-7.57,28.25-40.78,24.21-58.57,41.49Z"/>
 <path d="M297.49,47.5c1.52,1.53,1.69,4.56,1.49,6.6-9.73,34.17-20.84,67.94-30.81,102.04-1.98,6.77-4.98,12.17-3.08,19.54,3.26,12.67,23.9,10.74,33.8,10.32,12.03-.52,47.2-6.51,41.22,16.31-2.89,11.03-27.33,25.44-35.79,34.92-12.69,14.22-12.33,22.08-17.11,39.29-8.43,30.35-32.51,29.38-53.83,45.23-11.55,8.58-23.44,22.12-24.81,37.03-.09,1.02.12,2.17,0,3.15-.05.4-.16.84-.57.42-3.21-16.77-5.77-35.13,8.15-47.82,16.95-15.45,44.17-13.25,55.37-35.96,4.42-8.97,5.31-19.46,9.53-28.26,5.7-11.9,23.82-26.89,16.43-41.14-5.1-9.84-17.35-9.92-26.83-7.91-10.75,2.27-19.85,9.02-30.77,10.46-12.08,1.59-24.02-3.21-22.72-17.28,1.34-14.45,28.62-32.92,37.57-45.46,9.79-13.73,15.71-31.21,15.41-48.18-.18-9.77-2.86-20.28.91-29.7,2.84-7.09,12.56-16.53,18.25-21.83,1.96-1.83,5.85-4.13,8.21-1.76Z"/>
 <path d="M222.57,161.64c-10.3,9.4-22.11,21.73-21.47,36.78.28,6.6,3.42,12.33,3.97,18.36,1.15,12.62-17.92,15.93-20.73,3.55-2.54-11.2,7.42-29.49,13.95-38.46s14.64-15.67,24.28-20.23Z"/>
-<path d="M240.61,280.45c8.76-8.27,18.44-18.92,20-31.38,1.2-9.55-3.15-13.59-3.94-21.47-1.27-12.79,16.84-17.48,20.5-3.89,1.87,6.95-.86,13.66-3.68,19.92-6.85,15.2-17.27,29.86-32.88,36.83Z"/></svg></span><div><b>gframe.i</b><span>GFRAME · Direção visual para atletas</span><em>Sua história merece ser contada.</em></div></div>
-            <article class="ig-post"><div class="ig-ph"><span class="ig-av sm"><svg class="raio" viewBox="80 0 300 443" aria-hidden="true"><path d="M197.19,154.58c-11.29,10.97-10.66,27.41-17.99,40.56-6.3,11.3-25.7,31.45-11.75,43.52,8.1,7.01,21.07,5.25,30.43,2.08,12.56-4.25,31.65-17.25,43-3.36,12.79,15.66-10,32.23-19.61,41.93-16.22,16.37-28.370,36.59-29.34,60.28-.42,10.27,3.49,21.75.21,31.71-2.48,7.53-13.53,19.23-20.16,23.64-5.37,3.58-8.67.83-8.41-5.26,4.45-18.93,11.04-37.4,16.69-56.03,4.44-14.64,9.07-29.31,13.24-44.02,3.17-11.17,9.22-25.04-5.51-30.28-15.95-5.68-36.61,1.51-53.67-1.59-20.58-3.74-12.6-20.67-1.96-30.69,15.42-14.53,29.73-19.99,37.8-41.79,2.99-8.07,3.58-16.95,6.73-25.05,9.49-24.43,31.86-24.93,50.78-37.97,13.82-9.53,26.95-24.75,26.66-42.48l.77,2.81c1.64,10.12,3.35,20.41.64,30.52-7.57,28.25-40.78,24.21-58.57,41.49Z"/>
-<path d="M297.49,47.5c1.52,1.53,1.69,4.56,1.49,6.6-9.73,34.17-20.84,67.94-30.81,102.04-1.98,6.77-4.98,12.17-3.08,19.54,3.26,12.67,23.9,10.74,33.8,10.32,12.03-.52,47.2-6.51,41.22,16.31-2.89,11.03-27.33,25.44-35.79,34.92-12.69,14.22-12.33,22.08-17.11,39.29-8.43,30.35-32.51,29.38-53.83,45.23-11.55,8.58-23.44,22.12-24.81,37.03-.09,1.02.12,2.17,0,3.15-.05.4-.16.84-.57.42-3.21-16.77-5.77-35.13,8.15-47.82,16.95-15.45,44.17-13.25,55.37-35.96,4.42-8.97,5.31-19.46,9.53-28.26,5.7-11.9,23.82-26.89,16.43-41.14-5.1-9.84-17.35-9.92-26.83-7.91-10.75,2.27-19.85,9.02-30.77,10.46-12.08,1.59-24.02-3.21-22.72-17.28,1.34-14.45,28.62-32.92,37.57-45.46,9.79-13.73,15.71-31.21,15.41-48.18-.18-9.77-2.86-20.28.91-29.7,2.84-7.09,12.56-16.53,18.25-21.83,1.96-1.83,5.85-4.13,8.21-1.76Z"/>
-<path d="M222.57,161.64c-10.3,9.4-22.11,21.73-21.47,36.78.28,6.6,3.42,12.33,3.97,18.36,1.15,12.62-17.92,15.93-20.73,3.55-2.54-11.2,7.42-29.49,13.95-38.46s14.64-15.67,24.28-20.23Z"/>
-<path d="M240.61,280.45c8.76-8.27,18.44-18.92,20-31.38,1.2-9.55-3.15-13.59-3.94-21.47-1.27-12.79,16.84-17.48,20.5-3.89,1.87,6.95-.86,13.66-3.68,19.92-6.85,15.2-17.27,29.86-32.88,36.83Z"/></svg></span><b>gframe.i</b><small>Carrossel</small></div><div class="ig-media"><div id="robSlides" class="ig-car"><img class="f on" src="img/post_rob_1.jpg" alt="Post Robinho Jr. convocado, capa"><img class="f" src="img/post_rob_2.jpg" alt="Post Robinho Jr. convocado, números"><img class="f" src="img/post_rob_3.jpg" alt="Post Robinho Jr. convocado, destaques"><div class="dots"><i class="on"></i><i></i><i></i></div></div></div><div class="ig-act"><span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-3.2-6.4A8 8 0 0 1 20 12zm0 0v8l-3-2"/></svg><svg viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z"/></svg></span><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg></div><p class="ig-cap"><b>gframe.i</b> CONVOCADO. Ninguém viu as manhãs de treino em Gênova… <span>30 de out.</span></p></article><article class="ig-post"><div class="ig-ph"><span class="ig-av sm"><svg class="raio" viewBox="80 0 300 443" aria-hidden="true"><path d="M197.19,154.58c-11.29,10.97-10.66,27.41-17.99,40.56-6.3,11.3-25.7,31.45-11.75,43.52,8.1,7.01,21.07,5.25,30.43,2.08,12.56-4.25,31.65-17.25,43-3.36,12.79,15.66-10,32.23-19.61,41.93-16.22,16.37-28.370,36.59-29.34,60.28-.42,10.27,3.49,21.75.21,31.71-2.48,7.53-13.53,19.23-20.16,23.64-5.37,3.58-8.67.83-8.41-5.26,4.45-18.93,11.04-37.4,16.69-56.03,4.44-14.64,9.07-29.31,13.24-44.02,3.17-11.17,9.22-25.04-5.51-30.28-15.95-5.68-36.61,1.51-53.67-1.59-20.58-3.74-12.6-20.67-1.96-30.69,15.42-14.53,29.73-19.99,37.8-41.79,2.99-8.07,3.58-16.95,6.73-25.05,9.49-24.43,31.86-24.93,50.78-37.97,13.82-9.53,26.95-24.75,26.66-42.48l.77,2.81c1.64,10.12,3.35,20.41.64,30.52-7.57,28.25-40.78,24.21-58.57,41.49Z"/>
-<path d="M297.49,47.5c1.52,1.53,1.69,4.56,1.49,6.6-9.73,34.17-20.84,67.94-30.81,102.04-1.98,6.77-4.98,12.17-3.08,19.54,3.26,12.67,23.9,10.74,33.8,10.32,12.03-.52,47.2-6.51,41.22,16.31-2.89,11.03-27.33,25.44-35.79,34.92-12.69,14.22-12.33,22.08-17.11,39.29-8.43,30.35-32.51,29.38-53.83,45.23-11.55,8.58-23.44,22.12-24.81,37.03-.09,1.02.12,2.17,0,3.15-.05.4-.16.84-.57.42-3.21-16.77-5.77-35.13,8.15-47.82,16.95-15.45,44.17-13.25,55.37-35.96,4.42-8.97,5.31-19.46,9.53-28.26,5.7-11.9,23.82-26.89,16.43-41.14-5.1-9.84-17.35-9.92-26.83-7.91-10.75,2.27-19.85,9.02-30.77,10.46-12.08,1.59-24.02-3.21-22.72-17.28,1.34-14.45,28.62-32.92,37.57-45.46,9.79-13.73,15.71-31.21,15.41-48.18-.18-9.77-2.86-20.28.91-29.7,2.84-7.09,12.56-16.53,18.25-21.83,1.96-1.83,5.85-4.13,8.21-1.76Z"/>
-<path d="M222.57,161.64c-10.3,9.4-22.11,21.73-21.47,36.78.28,6.6,3.42,12.33,3.97,18.36,1.15,12.62-17.92,15.93-20.73,3.55-2.54-11.2,7.42-29.49,13.95-38.46s14.64-15.67,24.28-20.23Z"/>
-<path d="M240.61,280.45c8.76-8.27,18.44-18.92,20-31.38,1.2-9.55-3.15-13.59-3.94-21.47-1.27-12.79,16.84-17.48,20.5-3.89,1.87,6.95-.86,13.66-3.68,19.92-6.85,15.2-17.27,29.86-32.88,36.83Z"/></svg></span><b>gframe.i</b><small>Reel</small></div><div class="ig-media"><video src="img/jonathan_motion.mp4" poster="img/jonathan_motion_poster.jpg" autoplay muted loop playsinline aria-label="Motion da história de Jonathan Jesus"></video></div><div class="ig-act"><span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-3.2-6.4A8 8 0 0 1 20 12zm0 0v8l-3-2"/></svg><svg viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z"/></svg></span><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg></div><p class="ig-cap"><b>gframe.i</b> CONVOCADO. Da Baixada Santista à camisa amarela… <span>29 de out.</span></p></article><article class="ig-post"><div class="ig-ph"><span class="ig-av sm"><svg class="raio" viewBox="80 0 300 443" aria-hidden="true"><path d="M197.19,154.58c-11.29,10.97-10.66,27.41-17.99,40.56-6.3,11.3-25.7,31.45-11.75,43.52,8.1,7.01,21.07,5.25,30.43,2.08,12.56-4.25,31.65-17.25,43-3.36,12.79,15.66-10,32.23-19.61,41.93-16.22,16.37-28.370,36.59-29.34,60.28-.42,10.27,3.49,21.75.21,31.71-2.48,7.53-13.53,19.23-20.16,23.64-5.37,3.58-8.67.83-8.41-5.26,4.45-18.93,11.04-37.4,16.69-56.03,4.44-14.64,9.07-29.31,13.24-44.02,3.17-11.17,9.22-25.04-5.51-30.28-15.95-5.68-36.61,1.51-53.67-1.59-20.58-3.74-12.6-20.67-1.96-30.69,15.42-14.53,29.73-19.99,37.8-41.79,2.99-8.07,3.58-16.95,6.73-25.05,9.49-24.43,31.86-24.93,50.78-37.97,13.82-9.53,26.95-24.75,26.66-42.48l.77,2.81c1.64,10.12,3.35,20.41.64,30.52-7.57,28.25-40.78,24.21-58.57,41.49Z"/>
-<path d="M297.49,47.5c1.52,1.53,1.69,4.56,1.49,6.6-9.73,34.17-20.84,67.94-30.81,102.04-1.98,6.77-4.98,12.17-3.08,19.54,3.26,12.67,23.9,10.74,33.8,10.32,12.03-.52,47.2-6.51,41.22,16.31-2.89,11.03-27.33,25.44-35.79,34.92-12.69,14.22-12.33,22.08-17.11,39.29-8.43,30.35-32.51,29.38-53.83,45.23-11.55,8.58-23.44,22.12-24.81,37.03-.09,1.02.12,2.17,0,3.15-.05.4-.16.84-.57.42-3.21-16.77-5.77-35.13,8.15-47.82,16.95-15.45,44.17-13.25,55.37-35.96,4.42-8.97,5.31-19.46,9.53-28.26,5.7-11.9,23.82-26.89,16.43-41.14-5.1-9.84-17.35-9.92-26.83-7.91-10.75,2.27-19.85,9.02-30.77,10.46-12.08,1.59-24.02-3.21-22.72-17.28,1.34-14.45,28.62-32.92,37.57-45.46,9.79-13.73,15.71-31.21,15.41-48.18-.18-9.77-2.86-20.28.91-29.7,2.84-7.09,12.56-16.53,18.25-21.83,1.96-1.83,5.85-4.13,8.21-1.76Z"/>
-<path d="M222.57,161.64c-10.3,9.4-22.11,21.73-21.47,36.78.28,6.6,3.42,12.33,3.97,18.36,1.15,12.62-17.92,15.93-20.73,3.55-2.54-11.2,7.42-29.49,13.95-38.46s14.64-15.67,24.28-20.23Z"/>
-<path d="M240.61,280.45c8.76-8.27,18.44-18.92,20-31.38,1.2-9.55-3.15-13.59-3.94-21.47-1.27-12.79,16.84-17.48,20.5-3.89,1.87,6.95-.86,13.66-3.68,19.92-6.85,15.2-17.27,29.86-32.88,36.83Z"/></svg></span><b>gframe.i</b><small>Carrossel</small></div><div class="ig-media"><img src="img/c_diogenes.jpg" alt="Diógenes acenando para a torcida no Maracanã"></div><div class="ig-act"><span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-3.2-6.4A8 8 0 0 1 20 12zm0 0v8l-3-2"/></svg><svg viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z"/></svg></span><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg></div><p class="ig-cap"><b>gframe.i</b> DIÓGENES HELD THE LINE. Maracanã. O Santos saiu atrás no placar e virou… <span>19 de out.</span></p></article>
-          </div></div>
+<path d="M240.61,280.45c8.76-8.27,18.44-18.92,20-31.38,1.2-9.55-3.15-13.59-3.94-21.47-1.27-12.79,16.84-17.48,20.5-3.89,1.87,6.95-.86,13.66-3.68,19.92-6.85,15.2-17.27,29.86-32.88,36.83Z"/></svg></span>
+            <div class="igm"><b>gframe.i</b><span>GFRAME STUDIO</span><em>Sports campaign • visual direction</em></div>
+          </div>
+          <a class="igbtn" href="https://www.instagram.com/gframe.i/" target="_blank" rel="noopener">Seguir</a>
+          <div class="hls"><div class="hl"><span><img src="img/f_diogenes.jpg" alt=""></span><b>DIÓGENES</b></div><div class="hl"><span><img src="img/f_robinho.jpg" alt=""></span><b>ROBINHO JR</b></div><div class="hl"><span><img src="img/f_aranha.jpg" alt=""></span><b>ARANHA</b></div><div class="hl"><span><img src="img/f_jonathan.jpg" alt=""></span><b>JONATHAN</b></div><div class="hl"><span><img src="img/f_dudu.jpg" alt=""></span><b>DUDU</b></div></div>
+          <div class="igtabs"><i class="on"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM9 3v18M15 3v18M3 9h18M3 15h18"/></svg></i><i><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M10 9l5 3-5 3z"/></svg></i><i><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><circle cx="12" cy="10" r="3"/><path d="M7 18c1-3 9-3 10 0"/></svg></i></div>
+          <div class="iggr" id="igGrid"><a class="tile" href="https://www.instagram.com/p/DfIUVbWlB5G/" target="_blank" rel="noopener"><img src="img/post_rob_1.jpg" alt="Convocado. Robinho Jr." loading="lazy"><svg class="ty" viewBox="0 0 24 24"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12"/></svg></a><a class="tile" href="https://www.instagram.com/reel/DfFsoTLOOz4/" target="_blank" rel="noopener"><img src="img/jonathan_motion_poster.jpg" alt="Reel Jonathan Jesus" loading="lazy"><svg class="ty" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg></a><a class="tile" href="https://www.instagram.com/p/DerxKz9DT93/" target="_blank" rel="noopener"><img src="img/c_diogenes.jpg" alt="Diógenes no Maracanã" loading="lazy"><svg class="ty" viewBox="0 0 24 24"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12"/></svg></a></div>
         </div>
       </div>
     </div>
@@ -586,32 +607,27 @@ function frame(now){const dt=Math.min(50,now-last);last=now;if(!reduce)spin+=dt*
  requestAnimationFrame(frame)}
 requestAnimationFrame(frame);})();
 
-(()=>{const sec=document.getElementById('estudio'),ph=document.getElementById('phone'),feed=document.getElementById('igFeed'),scr=document.getElementById('igScreen'),items0=0;if(!sec)return;
+(()=>{const sec=document.getElementById('estudio'),ph=document.getElementById('phone');if(!sec)return;
 const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),sm=t=>t*t*(3-2*t),seg=(p,a,b)=>sm(cl((p-a)/(b-a))),lerp=(a,b,t)=>a+(b-a)*t;let raf=0;
 const upd=()=>{raf=0;const r=sec.getBoundingClientRect(),H=innerHeight;const p=cl(-r.top/(r.height-H));const pre=cl((H-r.top)/H);
- const e=sm(pre)*0.6+seg(p,0,.18)*0.4;const x=seg(p,.9,1);
- ph.style.transform=`translateY(${lerp(55,0,e)}vh) rotateX(${lerp(32,0,e)}deg) rotateZ(${lerp(-6,0,e)}deg) scale(${lerp(.8,1,e)*(1-x*.08)})`;
- const posts=[...feed.querySelectorAll('.ig-post')];const max=feed.scrollHeight-scr.clientHeight;
- const f=seg(p,.2,.88);feed.style.transform=`translateY(${-f*max}px)`;
- const mid=f*max+scr.clientHeight*.45;let k=0;posts.forEach((po,i)=>{if(po.offsetTop<=mid)k=i});document.querySelectorAll('#igList li').forEach((li,i)=>li.classList.toggle('on',i===k))};
-addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});addEventListener('resize',upd);upd();})();
+ const e=sm(pre)*0.6+seg(p,0,.18)*0.4;const x=seg(p,.92,1);
+ ph.style.transform=`translateY(${lerp(55,0,e)}vh) rotateX(${lerp(32,0,e)}deg) rotateZ(${lerp(-6,0,e)}deg) scale(${lerp(.8,1,e)*(1-x*.06)})`;
+ const tiles=[...document.querySelectorAll('#igGrid .tile')];tiles.forEach((t,i)=>{const v=seg(p,.12+i*.05,.26+i*.05);t.style.opacity=v.toFixed(3);t.style.transform=`translateY(${lerp(30,0,v)}px) scale(${lerp(.9,1,v)})`});
+ const k=Math.min(2,Math.floor(seg(p,.35,.9)*3));tiles.forEach((t,i)=>t.classList.toggle('on',i===k&&p>.3&&p<.98));
+ document.querySelectorAll('#igList li').forEach((li,i)=>li.classList.toggle('on',i===k))};
+addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});addEventListener('resize',upd);window.__igUpd=upd;upd();})();
 
 /* Últimos 3 posts do Instagram — cole aqui a URL do feed JSON (Behold.so). Sem URL, ficam os posts fixos. */
 const IG_FEED_URL='https://feeds.behold.so/Qhd143v7OWOvyZbrOSh6';
-(()=>{if(!IG_FEED_URL)return;const feed=document.getElementById('igFeed'),list=document.getElementById('igList');if(!feed||!list)return;
+(()=>{if(!IG_FEED_URL)return;const grid=document.getElementById('igGrid'),list=document.getElementById('igList');if(!grid||!list)return;
 const esc=t=>String(t||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const av=feed.querySelector('.ig-av.sm')?feed.querySelector('.ig-av.sm').outerHTML:'';const acts=feed.querySelector('.ig-act')?feed.querySelector('.ig-act').outerHTML:'';
-const label={IMAGE:'Foto',VIDEO:'Reel',CAROUSEL_ALBUM:'Carrossel'};
-fetch(IG_FEED_URL).then(r=>r.ok?r.json():Promise.reject()).then(d=>{const posts=(Array.isArray(d)?d:(d.posts||[])).slice(0,3);if(!posts.length)return;
- feed.querySelectorAll('.ig-post').forEach(p=>p.remove());
- const html=posts.map(p=>{const t=p.mediaType||p.media_type;const img=(t==='VIDEO'?(p.thumbnailUrl||p.thumbnail_url):(p.mediaUrl||p.media_url))||(p.sizes&&p.sizes.large&&p.sizes.large.mediaUrl);
-  const media=t==='VIDEO'&&(p.mediaUrl||p.media_url)?`<video src="${esc(p.mediaUrl||p.media_url)}" poster="${esc(img)}" autoplay muted loop playsinline></video>`:`<img src="${esc(img)}" alt="${esc((p.prunedCaption||p.caption||'Post do Instagram').slice(0,90))}" loading="lazy">`;
-  const cap=esc((p.prunedCaption||p.caption||'').slice(0,140));
-  return `<article class="ig-post"><a href="${esc(p.permalink)}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none"><div class="ig-ph">${av}<b>gframe.i</b><small>${label[t]||'Post'}</small></div><div class="ig-media">${media}</div>${acts}<p class="ig-cap"><b>gframe.i</b> ${cap}</p></a></article>`}).join('');
- feed.insertAdjacentHTML('beforeend',html);
- list.innerHTML=posts.map((p,i)=>{const t=p.mediaType||p.media_type;const ls=(p.prunedCaption||p.caption||'').split('\n').map(x=>x.trim()).filter(Boolean);let c=ls[0]||'';if(c.length<16&&ls[1])c+=' '+ls[1];c=c.length>60?c.slice(0,58)+'…':c;const dt=p.timestamp?new Date(p.timestamp).toLocaleDateString('pt-BR',{day:'2-digit',month:'short'}):'';
-  return `<li${i?'':' class="on"'}><small>${label[t]||'Post'}</small><b>${esc(c||'Post GFRAME')}</b><span>${esc(dt)}</span></li>`}).join('');
- dispatchEvent(new Event('resize'))}).catch(()=>{});})();
+const IC={CAROUSEL_ALBUM:`<svg class="ty" viewBox="0 0 24 24"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12"/></svg>`,VIDEO:`<svg class="ty" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>`,IMAGE:''};const label={IMAGE:'Foto',VIDEO:'Reel',CAROUSEL_ALBUM:'Carrossel'};
+fetch(IG_FEED_URL).then(r=>r.ok?r.json():Promise.reject()).then(d=>{const all=(Array.isArray(d)?d:(d.posts||[]));const posts=all.slice(0,6);if(!posts.length)return;
+ grid.innerHTML=posts.map(p=>{const t=p.mediaType||p.media_type;const img=(p.sizes&&(p.sizes.medium||p.sizes.large)&&(p.sizes.medium||p.sizes.large).mediaUrl)||p.thumbnailUrl||p.mediaUrl;
+  return `<a class="tile" href="${esc(p.permalink)}" target="_blank" rel="noopener"><img src="${esc(img)}" alt="${esc((p.prunedCaption||p.caption||'Post').split('\n')[0].slice(0,80))}" loading="lazy">${IC[t]||''}</a>`}).join('');
+ list.innerHTML=all.slice(0,3).map((p,i)=>{const t=p.mediaType||p.media_type;const ls=(p.prunedCaption||p.caption||'').split('\n').map(x=>x.trim()).filter(Boolean);let c=ls[0]||'';if(c.length<16&&ls[1])c+=' '+ls[1];c=c.length>60?c.slice(0,58)+'…':c;
+  const dt=p.timestamp?new Date(p.timestamp).toLocaleDateString('pt-BR',{day:'2-digit',month:'short'}):'';return `<li${i?'':' class="on"'}><small>${label[t]||'Post'}</small><b>${esc(c||'Post GFRAME')}</b><span>${esc(dt)}</span></li>`}).join('');
+ window.__igUpd&&window.__igUpd()}).catch(()=>{});})();
 </script>
 </body>
 </html>
