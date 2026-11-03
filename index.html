@@ -459,6 +459,8 @@ footer{transition:color .3s}
 .ed-idx button.on i{animation:fill var(--dur,6s) linear forwards}
 @media(max-width:860px){.hx.ed{aspect-ratio:3/4;max-height:none;min-height:0}.ed-copy{max-width:none;right:20px;bottom:120px}.ed-name{font-size:clamp(54px,16vw,96px);white-space:normal}.ed-side{left:20px;right:20px;width:auto;bottom:16px}.ed-side p{display:none}.ed-idx{grid-template-columns:repeat(4,1fr);border-top:0}.ed-idx button{border-bottom:1px solid rgba(255,255,255,.2);flex-direction:column;gap:2px;font-size:11px}.ed-idx button span{display:none}.ed-v{display:none}.ed-top span:first-child{font-size:9px}}
 
+#globeOut{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 38%);mask-image:linear-gradient(180deg,transparent 0,#000 38%)}
+#globeIn{-webkit-mask-image:linear-gradient(0deg,transparent 0,#000 30%);mask-image:linear-gradient(0deg,transparent 0,#000 30%)}
 /* scroll reveal (only where supported; content is visible otherwise) */
 @supports (animation-timeline: view()){
   .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
