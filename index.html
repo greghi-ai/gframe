@@ -132,6 +132,8 @@ a{color:inherit}
 .ag{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:clamp(24px,3vw,36px)}
 .ag div{background:var(--card);border-radius:22px;min-height:180px;display:grid;place-items:center;padding:24px;font-weight:700;font-size:clamp(34px,4.6vw,60px);letter-spacing:-.05em;color:#B9B5AE;transition:color .3s}
 .ag div:hover{color:var(--ink)}
+.aglogo{max-width:70%;max-height:64px;width:auto;height:auto;filter:brightness(0);opacity:.35;transition:opacity .3s}.aglogo.tall{max-height:104px}
+.ag div:hover .aglogo{opacity:.9}
 .ag small{display:block;font-size:12px;letter-spacing:0;font-weight:500;color:var(--mute);text-align:center;margin-top:6px}
 @media(max-width:560px){.ag{grid-template-columns:1fr}}
 
@@ -446,7 +448,7 @@ canvas.globe{position:absolute;inset:0;width:100%;height:100%;display:block}
   <div class="col">
     <div class="mk"><i>E</i>Parceiros<hr></div>
     <h2 class="two">Agências que já trabalharam <span>com a GFRAME.</span></h2>
-    <div class="ag"><div class="rv">Taiplay</div><div class="rv">4comM</div><div class="rv">Inc e Co</div></div>
+    <div class="ag"><div class="rv"><img src="img/ag_taiplay.png" alt="Taiplay" class="aglogo tall"></div><div class="rv"><img src="img/ag_4comm.png" alt="4ComM Career Management" class="aglogo"></div><div class="rv">Inc e Co</div></div>
   </div>
 </section>
 
